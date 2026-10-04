@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BONDIN | We're Raising Paws Over Here</title>
+<meta name="description" content="A monthly surprise box for dogs and their humans: treats, everyday essentials, games, and a little something for both of you, plus last-chance kits while they're up.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=Fraunces:ital,opsz,wght@0,9..144,300;0,9..144,400;0,9..144,500;0,9..144,600;0,9..144,700;0,9..144,900;1,9..144,500;1,9..144,600&family=Nunito+Sans:ital,opsz,wght@0,6..12,400;0,6..12,500;0,6..12,600;0,6..12,700;0,6..12,800;1,6..12,500&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#EC92B2;
+    --pink-deep:#D9749A;
+    --pink-pale:#FBE3EB;
+    --cream:#FEFDF7;
+    --paper:#F7F0E2;
+    --tan:#CC9E6C;
+    --tan-deep:#AD8154;
+    --sky:#A3D0F0;
+    --sky-deep:#7CB8E3;
+    --ink:#2A292E;
+    --ink-soft:#5B5960;
+    --ink-faint:#8B8891;
+    --line:rgba(42,41,46,0.14);
+
+    --font-display:'Fraunces', ui-serif, Georgia, serif;
+    --font-body:'Nunito Sans', ui-sans-serif, system-ui, sans-serif;
+    --font-hand:'Caveat', cursive;
+
+    --measure:62ch;
+    --radius-lg:28px;
+    --radius-md:18px;
+    --radius-sm:10px;
+    --shadow-soft:0 18px 40px -22px rgba(42,41,46,0.35);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  button{font:inherit;}
+
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:600;
+    margin:0;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  :focus-visible{
+    outline:3px solid var(--sky-deep);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .icon-defs{position:absolute;width:0;height:0;overflow:hidden;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 30px;
+    border-radius:999px;
+    border:2px solid transparent;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:0.98rem;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn:active{transform:translateY(0);}
+  .btn-primary{background:var(--ink);color:var(--cream);}
+  .btn-primary:hover{background:var(--pink-deep);box-shadow:var(--shadow-soft);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--cream);}
+  .btn-block{width:100%;justify-content:center;}
+  .btn-sm{padding:10px 20px;font-size:.88rem;}
+
+  .field-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .field-row input[type=email]{
+    flex:1 1 220px;padding:15px 20px;border-radius:999px;border:1.5px solid var(--line);
+    background:#fff;color:var(--ink);font-size:1rem;font-family:var(--font-body);
+  }
+  .field-row input::placeholder{color:var(--ink-faint);}
+  .field-row input:focus{border-color:var(--pink-deep);outline:none;box-shadow:0 0 0 4px var(--pink-pale);}
+
+  .field{margin-bottom:20px;}
+  .field label{display:block;font-weight:700;font-size:.9rem;margin-bottom:8px;}
+  .field input[type=text],
+  .field input[type=email],
+  .field input[type=tel],
+  .field input[type=number],
+  .field textarea{
+    width:100%;
+    padding:13px 16px;
+    border:1.5px solid var(--line);
+    border-radius:var(--radius-sm);
+    background:#fff;
+    font-family:var(--font-body);
+    font-size:1rem;
+    color:var(--ink);
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .field input:focus,.field textarea:focus{
+    border-color:var(--pink-deep);
+    box-shadow:0 0 0 4px var(--pink-pale);
+    outline:none;
+  }
+  .field textarea{resize:vertical;min-height:110px;}
+
+  .pillgroup{display:flex;flex-wrap:wrap;gap:10px;}
+  .pillgroup input{position:absolute;opacity:0;width:0;height:0;}
+  .pillgroup label{
+    padding:10px 18px;
+    border:1.5px solid var(--line);
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:.92rem;
+    color:var(--ink-soft);
+    transition:all .18s ease;
+    margin:0;
+  }
+  .pillgroup input:checked + label{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+  .pillgroup input:focus-visible + label{outline:3px solid var(--sky-deep);outline-offset:2px;}
+  .pillgroup label:hover{border-color:var(--pink-deep);}
+
+  /* ================= NAV ================= */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(254,253,247,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease, box-shadow .25s ease;
+  }
+  .nav.is-scrolled{border-color:var(--line); box-shadow:0 6px 24px -18px rgba(42,41,46,.4);}
+  .nav__row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .nav__brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+  .mark-img{display:block;object-fit:contain;}
+  .mark-img--nav{width:30px;height:auto;}
+  .mark-img--footer{width:30px;height:auto;}
+  .nav__brand span{font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:.01em;}
+  .nav__links{display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0;}
+  .nav__links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink-soft);padding:6px 2px;border-bottom:2px solid transparent;transition:color .2s, border-color .2s;}
+  .nav__links a:hover{color:var(--ink);border-color:var(--pink);}
+  .nav__cta{margin-left:8px;}
+  .nav .nav__cta a{color:var(--cream);padding:11px 30px;}
+  .nav .nav__cta a:hover{color:var(--cream);}
+  .nav__toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .nav__toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:transform .25s ease, opacity .25s ease;}
+  .nav.is-open .nav__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav.is-open .nav__toggle span:nth-child(2){opacity:0;}
+  .nav.is-open .nav__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width:860px){
+    .nav__links{
+      position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:var(--cream); border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden; transition:max-height .3s ease;
+      box-shadow:0 16px 24px -18px rgba(42,41,46,.35);
+    }
+    .nav.is-open .nav__links{max-height:440px;}
+    .nav__links li{border-top:1px solid var(--line);}
+    .nav__links a{display:block;padding:16px 32px;}
+    .nav__cta{margin:14px 32px 20px;}
+    .nav__toggle{display:block;}
+  }
+
+  /* ================= HERO ================= */
+  .hero{background:var(--cream);padding:70px 0 90px;overflow:hidden;position:relative;}
+  .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;}
+  .hero__eyebrow{font-family:var(--font-hand);font-size:1.5rem;color:var(--tan-deep);margin-bottom:14px;display:block;}
+  .hero h1{font-size:clamp(2.3rem,4.6vw,3.4rem);margin-bottom:20px;max-width:15ch;}
+  .hero__sub{font-size:clamp(1.02rem,1.6vw,1.15rem);color:var(--ink-soft);max-width:48ch;margin-bottom:28px;}
+  .hero__note{margin-top:14px;font-size:.86rem;color:var(--ink-faint);}
+  .hero__visual{position:relative;padding:10px;}
+  .hero__blob{position:absolute;border-radius:44% 56% 62% 38% / 48% 42% 58% 52%;background:var(--pink-pale);inset:6% 0% 2% 8%;z-index:0;}
+  .hero__photo{position:relative;z-index:1;border-radius:44% 56% 62% 38% / 48% 42% 58% 52%;overflow:hidden;border:6px solid var(--cream);box-shadow:var(--shadow-soft);}
+  .hero__photo img{width:100%;height:auto;display:block;}
+  .hero__tag{position:absolute;z-index:2;bottom:-6px;left:-6px;background:var(--ink);color:var(--cream);padding:12px 18px;border-radius:16px;font-size:.85rem;font-weight:600;box-shadow:var(--shadow-soft);max-width:190px;transform:rotate(-4deg);}
+  .hero__tag strong{display:block;font-family:var(--font-hand);font-size:1.3rem;color:var(--pink);}
+  @media (max-width:900px){
+    .hero__grid{grid-template-columns:1fr;}
+    .hero__visual{order:-1;max-width:340px;margin:0 auto 36px;}
+  }
+
+  /* ================= TRUST STRIP ================= */
+  .trust{background:var(--paper);padding:36px 0;}
+  .trust__row{display:flex;justify-content:center;flex-wrap:wrap;gap:28px;text-align:center;}
+  .trust__item{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.92rem;color:var(--ink);}
+  .trust__item svg{width:20px;height:20px;color:var(--pink-deep);flex:none;}
+
+  /* ================= HOW IT WORKS ================= */
+  .how{padding:100px 0;background:var(--cream);}
+  .how__head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .how__head p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--tan-deep);margin-bottom:4px;}
+  .how__head h2{font-size:clamp(2rem,4.2vw,2.9rem);}
+  .how__head p.sub{color:var(--ink-soft);margin-top:14px;}
+  .how__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  .how__step{padding:0 30px;}
+  .how__step + .how__step{border-left:1px dashed var(--line);}
+  .how__num{font-family:var(--font-display);font-style:italic;font-size:2.6rem;color:var(--pink-deep);line-height:1;margin-bottom:14px;}
+  .how__step h3{font-size:1.15rem;margin-bottom:8px;}
+  .how__step p{color:var(--ink-soft);margin:0;font-size:.96rem;}
+  @media (max-width:820px){
+    .how__grid{grid-template-columns:1fr;gap:36px;}
+    .how__step + .how__step{border-left:none;padding-top:32px;border-top:1px dashed var(--line);}
+  }
+
+  /* ================= VALUES ================= */
+  .values{background:var(--cream);padding:76px 0;}
+  .values__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  .values__item{padding:18px 34px;text-align:left;border-left:1px dashed var(--line);}
+  .values__item:first-child{border-left:none;padding-left:0;}
+  .values__item:last-child{padding-right:0;}
+  .values__item h3{font-size:clamp(1.6rem,3vw,2.1rem);font-style:italic;font-weight:500;margin-bottom:12px;}
+  .values__item p{color:var(--ink-soft);margin:0;font-size:.98rem;}
+  @media (max-width:760px){
+    .values__grid{grid-template-columns:1fr;gap:30px;}
+    .values__item{border-left:none;padding:0 0 26px;border-bottom:1px dashed var(--line);}
+    .values__item:last-child{border-bottom:none;padding-bottom:0;}
+  }
+
+  /* ================= STORY ================= */
+  .story{padding:100px 0;}
+  .story__grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;}
+  .story__card{position:relative;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-md);padding:30px;box-shadow:var(--shadow-soft);transform:rotate(-2.2deg);}
+  .story__photo{width:100%;height:auto;display:block;border-radius:calc(var(--radius-md) - 10px);}
+  .story__tape{position:absolute; top:-16px; left:50%; transform:translateX(-50%) rotate(-3deg); width:92px; height:30px; background:rgba(163,208,240,.55); box-shadow:0 2px 6px rgba(42,41,46,.12);}
+  .story__caption{font-family:var(--font-hand);font-size:1.15rem;color:var(--ink-soft);text-align:center;margin-top:14px;transform:rotate(-1deg);}
+  .story__eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--pink-deep);transform:rotate(-1.5deg);display:inline-block;margin-bottom:4px;}
+  .story__text h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:18px;}
+  .story__text p{color:var(--ink-soft);margin:0 0 16px;}
+  .story__text p:last-child{margin-bottom:0;color:var(--ink);font-weight:600;}
+  @media (max-width:860px){
+    .story__grid{grid-template-columns:1fr;gap:40px;}
+    .story__card{transform:none;max-width:360px;margin:0 auto;}
+  }
+
+  /* ================= INSIDE (dark band) ================= */
+  .inside{background:var(--ink);color:var(--cream);padding:96px 0;}
+  .inside__head{text-align:center;max-width:620px;margin:0 auto 52px;}
+  .inside__head p.eyebrow{font-family:var(--font-hand); font-size:1.4rem; color:var(--pink); margin-bottom:6px;}
+  .inside__head h2{font-size:clamp(2rem,4.4vw,2.9rem);color:var(--cream);}
+  .inside__slip{background:var(--cream);color:var(--ink);border-radius:var(--radius-lg);max-width:720px;margin:0 auto;padding:8px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);}
+  .inside__slip-inner{border:2px dashed var(--tan);border-radius:calc(var(--radius-lg) - 8px);padding:38px 40px;}
+  .inside__slip-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:18px;}
+  .inside__slip-head span:first-child{font-family:var(--font-display);font-weight:700;font-size:1.15rem;}
+  .inside__slip-head span:last-child{font-family:var(--font-hand);font-size:1.15rem;color:var(--pink-deep);}
+  .inside__list{list-style:none;margin:0;padding:0;}
+  .inside__list li{display:flex; gap:14px; align-items:flex-start; padding:13px 0; border-bottom:1px dashed var(--line);}
+  .inside__list li:last-child{border-bottom:none;padding-bottom:0;}
+  .inside__list svg{width:20px;height:20px;flex:none;margin-top:3px;color:var(--tan-deep);}
+  .inside__list strong{display:block;font-size:1rem;}
+  .inside__list span{color:var(--ink-soft);font-size:.94rem;}
+  .inside__note{max-width:720px;margin:26px auto 0;text-align:center;color:var(--cream-soft, rgba(254,253,247,.75));font-size:.92rem;}
+
+  /* ================= PRICING ================= */
+  .pricing{padding:100px 0;background:var(--paper);}
+  .pricing__head{text-align:center;max-width:560px;margin:0 auto 50px;}
+  .pricing__head p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--pink-deep);margin-bottom:4px;}
+  .pricing__head h2{font-size:clamp(2rem,4.2vw,2.9rem);}
+  .pricing__head p.sub{color:var(--ink-soft);margin-top:14px;}
+  .pricing__card{display:flex;flex-direction:column;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);padding:44px 40px;position:relative;overflow:hidden;}
+  .pricing__glow{position:absolute;width:220px;height:220px;background:var(--pink-pale);opacity:.8;filter:blur(50px);top:-90px;right:-70px;border-radius:50%;}
+  .pricing__plan{position:relative;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:1.2rem;color:var(--tan-deep);margin-bottom:12px;}
+  .pricing__amount{position:relative;font-family:var(--font-display);font-size:3.6rem;line-height:1;margin-bottom:10px;color:var(--ink);}
+  .pricing__amount span{font-family:var(--font-body);font-size:1rem;color:var(--ink-soft);font-weight:600;}
+  .pricing__desc{position:relative;color:var(--ink-soft);margin:0 0 26px;}
+  .pricing__list{position:relative;list-style:none;margin:0 0 30px;padding:0;}
+  .pricing__list li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px dashed var(--line);font-size:.96rem;color:var(--ink);}
+  .pricing__list li:first-child{border-top:none;}
+  .pricing__list svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--tan-deep);}
+  .pricing__foot{position:relative;text-align:center;font-size:.85rem;color:var(--ink-faint);margin-top:14px;}
+  .pricing__cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto;align-items:stretch;}
+  .pricing__card .pricing__plan{margin-bottom:16px;}
+  .pricing__card .btn{margin-top:auto;}
+  .pricing__card--featured{box-shadow:0 0 0 2px var(--pink-deep), var(--shadow-soft);}
+  .pricing__card .pricing__tag{position:relative;margin:0 0 26px;color:var(--ink-soft);font-size:.92rem;}
+  .pricing__badge{position:absolute;top:20px;inset-inline-end:20px;z-index:1;background:var(--pink-pale);color:var(--pink-deep);font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+  @media (max-width:860px){.pricing__cards{grid-template-columns:1fr;max-width:480px;}}
+
+  /* ================= JOIN FORM ================= */
+  .join{padding:100px 0;background:var(--cream);}
+  .join__card{max-width:640px;margin:0 auto;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-lg);padding:44px 40px;box-shadow:var(--shadow-soft);}
+  .join__head{text-align:center;margin-bottom:32px;}
+  .join__head h2{font-size:clamp(1.8rem,3.4vw,2.3rem);}
+  .join__head p{color:var(--ink-soft);margin-top:12px;}
+  .join__error{margin-top:12px;font-size:.9rem;color:var(--pink-deep);text-align:center;}
+  .join__head .join__plan{margin-top:10px;font-weight:700;font-size:.92rem;color:var(--pink-deep);}
+  .join__row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .join__col .field:last-child{margin-bottom:0;}
+  .join__row--notes{grid-template-columns:3fr 2fr;}
+  .join__notesfield{display:flex;flex-direction:column;}
+  .join__notesfield textarea{flex:1;min-height:0;}
+  .join__section{font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pink-deep);margin:0 0 14px;}
+  .join__section:not(:first-child){margin-top:8px;padding-top:24px;border-top:1px solid var(--line);}
+  @media (max-width:560px){.join__row{grid-template-columns:1fr;} .join__card{padding:32px 24px;}}
+  .join__success{display:none;text-align:center;}
+  .join__success.is-active{display:block;}
+  .join__success svg{width:48px;height:48px;color:var(--pink-deep);margin:0 auto 16px;}
+
+  /* ================= BOX PREVIEW ================= */
+  .boxshow{padding:100px 0;background:var(--paper);}
+  .boxshow__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;}
+  .boxshow p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--tan-deep);margin-bottom:4px;display:block;}
+  .boxshow h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:18px;}
+  .boxshow p.copy{color:var(--ink-soft);font-size:1.02rem;margin:0 0 26px;max-width:42ch;}
+  .boxshow__img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);}
+  .boxshow__img img{width:100%;height:auto;display:block;}
+  @media (max-width:900px){.boxshow__grid{grid-template-columns:1fr;text-align:center;} .boxshow p.copy{margin-left:auto;margin-right:auto;}}
+
+  /* ================= SHOP ================= */
+  .shop{background:var(--paper);padding:100px 0;}
+  .shop__head{text-align:center;max-width:620px;margin:0 auto 50px;}
+  .shop__head p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--tan-deep);margin-bottom:4px;}
+  .shop__head h2{font-size:clamp(2rem,4.4vw,2.9rem);}
+  .shop__head p.sub{color:var(--ink-soft);margin-top:14px;}
+  .shop__grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:960px; margin:0 auto; align-items:start;}
+  @media (max-width:860px){ .shop__grid{grid-template-columns:1fr;max-width:420px;} }
+  .shop__card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px 24px;box-shadow:var(--shadow-soft);text-align:left;display:flex;flex-direction:column;}
+  .shop__card .btn{margin-top:auto;}
+  .shop__badge{display:inline-block;align-self:flex-start;background:var(--pink-pale);color:var(--pink-deep);font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:14px;}
+  .shop__card h3{font-size:1.3rem;margin-bottom:8px;}
+  .shop__card > p{color:var(--ink-soft);font-size:.94rem;margin:0 0 6px;}
+  .shop__sketch{width:100%;height:auto;display:block;margin:8px 0 20px;border-radius:10px;}
+  .shop__slot{border:2px dashed var(--line);border-radius:var(--radius-md);padding:34px 24px;text-align:center;min-height:220px;display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--ink-faint);}
+  .shop__slot svg{width:34px;height:34px;margin-bottom:14px;color:var(--ink-faint);}
+  .shop__slot span{font-weight:700;font-size:.92rem;}
+  .shop__empty{max-width:640px;margin:34px auto 0;text-align:center;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-md);padding:32px 34px;box-shadow:var(--shadow-soft);}
+  .shop__empty h3{font-size:1.25rem;margin-bottom:10px;}
+  .shop__empty p{color:var(--ink-soft);margin:0 0 20px;}
+
+  /* ================= FAQ ================= */
+  .faq{padding:100px 0;background:var(--cream);}
+  .faq__head{text-align:center;max-width:560px;margin:0 auto 46px;}
+  .faq__head p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--pink-deep);margin-bottom:4px;}
+  .faq__head h2{font-size:clamp(2rem,4.2vw,2.9rem);}
+  .faq__list{max-width:740px;margin:0 auto;}
+  .faq__item{border-bottom:1px dashed var(--line);}
+  .faq__item:first-child{border-top:1px dashed var(--line);}
+  .faq__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;background:none;border:none;text-align:left;padding:22px 4px;cursor:pointer;font-family:var(--font-body);font-weight:700;font-size:1.02rem;color:var(--ink);}
+  .faq__q .plus{flex:none;width:22px;height:22px;position:relative;}
+  .faq__q .plus::before,.faq__q .plus::after{content:'';position:absolute;background:var(--ink);top:50%;left:50%;transform:translate(-50%,-50%);transition:transform .25s ease,opacity .25s ease;}
+  .faq__q .plus::before{width:16px;height:2px;}
+  .faq__q .plus::after{width:2px;height:16px;}
+  .faq__item.is-open .plus::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0;}
+  .faq__a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq__a strong{color:var(--ink);}
+  .faq__a p{color:var(--ink-soft);margin:0 0 22px;max-width:60ch;font-size:.96rem;}
+  .faq__item.is-open .faq__a{max-height:900px;}
+
+  /* ================= CONTACT ================= */
+  .contact{padding:104px 0;}
+  .contact__grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:flex-start;}
+  .contact__intro p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--pink-deep);margin-bottom:4px;}
+  .contact__intro h2{font-size:clamp(2rem,4.2vw,2.7rem);margin-bottom:16px;}
+  .contact__intro p.sub{color:var(--ink-soft);margin:0 0 26px;max-width:38ch;}
+  .contact__meta{display:flex;flex-direction:column;gap:10px;}
+  .contact__meta a{text-decoration:none;font-weight:700;border-bottom:2px solid var(--pink);padding-bottom:1px;}
+  .contact__form{background:var(--cream); border:1px solid var(--line); border-radius:var(--radius-lg); padding:34px; box-shadow:var(--shadow-soft);}
+  .contact__row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:560px){ .contact__row{grid-template-columns:1fr;} .contact__grid{grid-template-columns:1fr;gap:40px;} }
+  .contact__status{margin-top:14px;font-size:.9rem;color:var(--ink-soft);min-height:1.4em;}
+
+  /* ================= FINAL CTA ================= */
+  .final{padding:110px 0;text-align:center;background:var(--paper);}
+  .final h2{font-size:clamp(2.1rem,4.6vw,3rem);max-width:16ch;margin:0 auto 26px;}
+  .final__form{max-width:480px;margin:0 auto;}
+
+  /* ================= FOOTER ================= */
+  .footer{background:var(--ink);color:var(--cream);padding:64px 0 34px;}
+  .footer__top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:36px;padding-bottom:40px;border-bottom:1px solid rgba(254,253,247,.14);}
+  .footer__brand{display:flex;align-items:center;gap:10px;}
+  .footer__brand span{font-family:var(--font-display);font-weight:700;font-size:1.3rem;}
+  .footer__tagline{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tan);margin-top:8px;}
+  .footer__links{display:flex;gap:34px;flex-wrap:wrap;list-style:none;margin:0;padding:0;}
+  .footer__links a{text-decoration:none;color:var(--cream);opacity:.82;font-weight:600;font-size:.94rem;}
+  .footer__links a:hover{opacity:1;color:var(--pink);}
+  .footer__bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:.85rem;color:rgba(254,253,247,.6);}
+</style>
+</head>
+<body>
+
+<svg class="icon-defs" aria-hidden="true">
+  <symbol id="icon-paw" viewBox="0 0 40 40" fill="currentColor">
+    <ellipse cx="20" cy="27" rx="9.5" ry="7.5"/>
+    <circle cx="9" cy="15" r="3.6"/>
+    <circle cx="16" cy="8" r="3.6"/>
+    <circle cx="25" cy="8" r="3.6"/>
+    <circle cx="31" cy="15" r="3.6"/>
+  </symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12.5 9 18 20 6"/>
+  </symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="5" width="18" height="14" rx="2.5"/>
+    <path d="M4 7l8 6 8-6"/>
+  </symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></symbol>
+  <symbol id="ic-seal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l5 5v8l-5 5h-8l-5-5v-8z"/><path d="M8 12.3l2.6 2.6L16.5 9"/></symbol>
+  <symbol id="ic-heart-line" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-6-4-9-7.5-9-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 3.5-3 7-9 11z"/></symbol>
+</svg>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <div class="nav__row">
+    <a class="nav__brand" href="#top">
+      <img class="mark-img mark-img--nav" src="https://stavyesh.github.io/bondin-site/images/img-75195fbc65.png" alt="BONDIN">
+      <span>BONDIN</span>
+    </a>
+    <button type="button" class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#inside">What's inside</a></li>
+      <li><a href="#join">Join the pack</a></li>
+      <li><a href="#story">Our story</a></li>
+      <li><a href="#shop">One-time kits</a></li>
+      <li><a href="#contact">Say hello</a></li>
+      <li class="nav__cta"><a class="btn btn-primary btn-sm" href="#join">Join us!</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="hero__eyebrow">Meet the box your dog checks the mail for</span>
+      <h1>A monthly surprise for you and your best friend.</h1>
+      <p class="hero__sub">Bondin is a monthly package that makes dog parenting easier. It has everything you both need: high quality treats, everyday essentials, fun games, something small for you, and a fun &ldquo;pupdate&rdquo; to go with it. We got you. You stop guessing what they need. They start waiting by the door on delivery day.</p>
+      <form class="field-row" id="heroForm">
+        <input type="email" id="heroEmail" placeholder="your@email.com" required aria-label="Email address">
+        <button type="submit" class="btn btn-primary">Get started</button>
+      </form>
+      <p class="hero__note">No spam, just dog stuff.</p>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__blob"></div>
+      <div class="hero__photo">
+        <img src="https://stavyesh.github.io/bondin-site/images/img-d45d7c91e8.png" alt="Buli, mid-laugh in the park">
+      </div>
+      <div class="hero__tag"><strong>Buli</strong>the reason this exists</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= TRUST STRIP ================= -->
+<section class="trust">
+  <div class="wrap trust__row">
+    <div class="trust__item"><svg><use href="#ic-shield"/></svg>Curated by dog parents, not an algorithm</div>
+    <div class="trust__item"><svg><use href="#ic-seal"/></svg>Every product checked for quality before it ships</div>
+    <div class="trust__item"><svg><use href="#ic-heart-line"/></svg>A little more bond in every box</div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="how__head">
+      <p class="eyebrow">simple by design</p>
+      <h2>Three steps. Then it's just waiting for the mail.</h2>
+      <p class="sub">A short questionnaire so we can get to know you a little, and your package is on its way.</p>
+    </div>
+    <div class="how__grid">
+      <div class="how__step">
+        <span class="how__num">01</span>
+        <h3>Tell us about your dog</h3>
+        <p>Name, size, and energy level, the stuff that actually changes what belongs in the box.</p>
+      </div>
+      <div class="how__step">
+        <span class="how__num">02</span>
+        <h3>We build the box</h3>
+        <p>Tasty treats, essentials and a game or two, matched to your dog specifically, in a package full of thought.</p>
+      </div>
+      <div class="how__step">
+        <span class="how__num">03</span>
+        <h3>We keep showing up</h3>
+        <p>Every month, matched to how your dog is growing and changing. You relax knowing it's handled, they get to have the time of their life.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S INSIDE ================= -->
+<section class="inside" id="inside">
+  <div class="wrap">
+    <div class="inside__head">
+      <p class="eyebrow">basically a hug in a box</p>
+      <h2>What's inside, every month</h2>
+    </div>
+    <div class="inside__slip">
+      <div class="inside__slip-inner">
+        <div class="inside__slip-head">
+          <span>This month's box</span>
+          <span>packed with care</span>
+        </div>
+        <ul class="inside__list">
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>Quality treats</strong><span>Soft chews, bones, or something in between, matched to what your dog actually likes, and can eat.</span></div>
+          </li>
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>Everyday essentials and hygiene</strong><span>Poop bags, toothpaste and more that you'd probably forget to reorder.</span></div>
+          </li>
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>Games to bond over</strong><span>Simple games and exercises built to strengthen your connection, not just burn energy.</span></div>
+          </li>
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>A little something for you</strong><span>You're doing this too, so you get a small gift of your own.</span></div>
+          </li>
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>The pupdate</strong><span>Your monthly excuse to try something new together. A game, challenge, outing, activity, or surprise made for you and your dog.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="inside__note">Every product is checked for quality before it ships.</p>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="pricing__head">
+      <p class="eyebrow">fair and simple</p>
+      <h2>Two plans, thoughtfully put together</h2>
+      <p class="sub">Exactly what you and your dog need each month, chosen with care and thought so you two can focus on having fun together.</p>
+    </div>
+    <div class="pricing__cards">
+      <div class="pricing__card pricing__card--featured">
+        <div class="pricing__glow"></div>
+        <span class="pricing__badge">Recommended</span>
+        <span class="pricing__plan">BONDIN Whole Pack</span>
+        <div class="pricing__amount">₪249<span>&nbsp;/ month</span></div>
+        <p class="pricing__tag">The full box. We take care of everything and you enjoy total peace of mind.</p>
+        <ul class="pricing__list">
+          <li><svg><use href="#icon-check"/></svg>Delicious, high-quality treats without compromise, so you can relax about this one too</li>
+          <li><svg><use href="#icon-check"/></svg>Genuinely useful, carefully chosen products, so you can be a smart shopper</li>
+          <li><svg><use href="#icon-check"/></svg>Games and exercises to strengthen your bond</li>
+          <li><svg><use href="#icon-check"/></svg>A little something for you, every month</li>
+          <li><svg><use href="#icon-check"/></svg>Free shipping every month</li>
+        </ul>
+        <a href="#join" class="btn btn-primary btn-block" data-plan="treats">Start my first box</a>
+        <p class="pricing__foot">Commitment-free</p>
+      </div>
+      <div class="pricing__card">
+        <span class="pricing__plan">BONDIN Fun Pack</span>
+        <div class="pricing__amount">₪149<span>&nbsp;/ month</span></div>
+        <p class="pricing__tag">All the fun of BONDIN. You take care of the treats.</p>
+        <ul class="pricing__list">
+          <li><svg><use href="#icon-check"/></svg>Genuinely useful, carefully chosen products, so you can be a smart shopper</li>
+          <li><svg><use href="#icon-check"/></svg>Games and exercises to strengthen your bond</li>
+          <li><svg><use href="#icon-check"/></svg>A little something for you, every month</li>
+          <li><svg><use href="#icon-check"/></svg>Free shipping every month</li>
+        </ul>
+        <a href="#join" class="btn btn-ghost btn-block" data-plan="basic">Start my first box</a>
+        <p class="pricing__foot">Commitment-free</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOIN FORM ================= -->
+<section class="join" id="join">
+  <div class="wrap">
+    <div class="join__card">
+      <div class="join__head">
+        <h2>Let's build your dog's first box</h2>
+        <p>Takes about a minute. No card details yet, just the fun stuff.</p>
+        <p class="join__plan" id="joinPlan">Your plan: BONDIN Whole Pack · ₪249 / month</p>
+      </div>
+      <form id="joinForm">
+        <input type="checkbox" id="jBot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <p class="join__section">About your dog</p>
+        <div class="field">
+          <label for="jDogName">Dog's name</label>
+          <input type="text" id="jDogName" required>
+        </div>
+        <div class="join__row">
+          <div class="field">
+            <label>Dog's gender</label>
+            <div class="pillgroup" role="radiogroup" aria-label="Dog's gender">
+              <input type="radio" id="jDogGenderM" name="jDogGender" value="Male" required><label for="jDogGenderM">Male</label>
+              <input type="radio" id="jDogGenderF" name="jDogGender" value="Female"><label for="jDogGenderF">Female</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="jDogAge">Dog's age</label>
+            <input type="number" id="jDogAge" min="0" max="30" step="0.5" required>
+          </div>
+        </div>
+        <div class="join__row join__row--notes">
+          <div class="join__col">
+            <div class="field">
+              <label>Size</label>
+              <div class="pillgroup" role="radiogroup" aria-label="Dog's size">
+                <input type="radio" id="jSizeS" name="jSize" value="Small" required><label for="jSizeS">Small</label>
+                <input type="radio" id="jSizeM" name="jSize" value="Medium"><label for="jSizeM">Medium</label>
+                <input type="radio" id="jSizeL" name="jSize" value="Large"><label for="jSizeL">Large</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>Energy</label>
+              <div class="pillgroup" role="radiogroup" aria-label="Dog's energy level">
+                <input type="radio" id="jEnCalm" name="jEnergy" value="Calm" required><label for="jEnCalm">Calm</label>
+                <input type="radio" id="jEnPlay" name="jEnergy" value="Playful"><label for="jEnPlay">Playful</label>
+                <input type="radio" id="jEnHigh" name="jEnergy" value="Non-stop"><label for="jEnHigh">Non-stop</label>
+              </div>
+            </div>
+          </div>
+          <div class="field join__notesfield">
+            <label for="jDogNotes">Tell us a bit about them:</label>
+            <textarea id="jDogNotes" rows="2" maxlength="200"></textarea>
+          </div>
+        </div>
+
+        <p class="join__section">About you</p>
+        <div class="field">
+          <label for="jParentName">Your name</label>
+          <input type="text" id="jParentName" required>
+        </div>
+        <div class="join__row">
+          <div class="field">
+            <label for="jPhone">Phone number</label>
+            <input type="tel" id="jPhone" required>
+          </div>
+          <div class="field">
+            <label for="jEmail">Your email</label>
+            <input type="email" id="jEmail" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="jAddress">Shipping address</label>
+          <input type="text" id="jAddress" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">Start my first box</button>
+        <p class="join__error" id="joinError" role="alert"></p>
+      </form>
+      <div class="join__success" id="joinSuccess">
+        <svg><use href="#icon-mail"/></svg>
+        <h3 style="font-family:var(--font-body);font-weight:800;font-size:1.2rem;margin-bottom:8px;">Thank you, we got it!</h3>
+        <p style="color:var(--ink-soft);">Your details reached Bondin. We will be in touch soon with the next steps.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOX PREVIEW ================= -->
+<section class="boxshow">
+  <div class="wrap boxshow__grid">
+    <div>
+      <p class="eyebrow">the good part</p>
+      <h2>Here's what showing up looks like.</h2>
+      <p class="copy">What's inside changes every month. But the fun excitement always stays. We packed it like we'd want to receive it ourselves.</p>
+      <a class="btn btn-ghost" href="#join">Get the next one</a>
+    </div>
+    <div class="boxshow__img">
+      <img src="https://stavyesh.github.io/bondin-site/images/img-9d53c97c93.png" alt="A Bondin box, ribboned and ready to open">
+    </div>
+  </div>
+</section>
+
+<!-- ================= STORY ================= -->
+<section class="story" id="story">
+  <div class="wrap story__grid">
+    <div>
+      <div class="story__card">
+        <img class="story__photo" src="https://stavyesh.github.io/bondin-site/images/img-d45d7c91e8.png" alt="Buli, all smiles in his harness">
+        <div class="story__tape"></div>
+      </div>
+      <p class="story__caption">it started with a boy named Buli</p>
+    </div>
+    <div class="story__text">
+      <span class="story__eyebrow">our story</span>
+      <h2>My dog-child, my best friend, my inspiration.</h2>
+      <p>Buli brought joy, laughter, and purpose to every single day. Let's be honest though, those cute ears don't come with instructions. Like a lot of dog parents, I wanted to give him the very best. Instead, I found myself scrolling for hours, standing in aisles, squinting at labels while he (im)patiently waited.</p>
+      <p>What I actually wanted was more time with him. More play, more laughter, more little moments that turn into memories. So we built Bondin to do the searching and the curating, every month, so you can spend less time scrolling and more time on the couch, on the trail, or wherever your pup happens to be dragging you.</p>
+      <p>You're part of our furrmily now.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALUES ================= -->
+<section class="values">
+  <div class="wrap values__grid">
+    <div class="values__item">
+      <h3>Play</h3>
+      <p>Games and goodies that turn a Tuesday into something worth wagging about.</p>
+    </div>
+    <div class="values__item">
+      <h3>Understand</h3>
+      <p>Small tools and notes that help you read your pup a little better, month over month.</p>
+    </div>
+    <div class="values__item">
+      <h3>Bond</h3>
+      <p>Everything in the box is built for two, because the best part of any of this is doing it together.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SHOP ================= -->
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="shop__head">
+      <p class="eyebrow">now and then</p>
+      <h2>One-time kits, while they last</h2>
+      <p class="sub">Every so often we put together a themed kit outside the regular box: limited runs, so it's worth grabbing yours while they're here.</p>
+    </div>
+
+    <div class="shop__grid" id="shopGrid">
+      <div class="shop__card">
+        <span class="shop__badge">Last-Chance</span>
+        <h3>Winter Kit</h3>
+        <p>A small set of everyday tools that make winter care easier, especially when it's cold, wet, and you'd like things to feel easy.</p>
+        <a class="btn btn-primary btn-sm btn-block" href="mailto:bondin.pawmail@gmail.com?subject=Interested%20in%20the%20Winter%20Kit&body=Hi%20Bondin%2C%0A%0AI%27d%20love%20to%20get%20the%20Winter%20Kit%20for%20my%20pup.%20Let%20me%20know%20the%20next%20steps.">Get the Winter Kit</a>
+      </div>
+      <div class="shop__card">
+        <span class="shop__badge">Last-Chance</span>
+        <h3>Valentine's Day Kit</h3>
+        <p>A little extra sweetness for the two of you: something to chew, something to wear, and something to remember it by.</p>
+        <a class="btn btn-primary btn-sm btn-block" href="mailto:bondin.pawmail@gmail.com?subject=Interested%20in%20the%20Valentine%27s%20Day%20Kit&body=Hi%20Bondin%2C%0A%0AI%27d%20love%20to%20get%20the%20Valentine%27s%20Day%20Kit%20for%20my%20pup.%20Let%20me%20know%20the%20next%20steps.">Get the Valentine's Kit</a>
+      </div>
+      <div class="shop__slot"><svg><use href="#icon-paw"/></svg><span>Coming soon</span></div>
+    </div>
+
+    <div class="shop__empty">
+      <h3>That's what's out right now</h3>
+      <p>Become a new member of our furrmily and you'll hear about the next kit before anyone else.</p>
+      <a class="btn btn-ghost btn-sm" href="#join">Join the pack</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="faq__head">
+      <p class="eyebrow">before you ask</p>
+      <h2>Questions, answered plainly</h2>
+    </div>
+    <div class="faq__list" id="faqList">
+      <div class="faq__item is-open">
+        <button type="button" class="faq__q"><span>Is this only for puppies?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>Not at all. At BONDIN every age is welcome. We tailor the box to your dog, so energetic puppies and dogs who prefer to take life a little easier will both find things they love in it.</p></div>
+      </div>
+      <div class="faq__item">
+        <button type="button" class="faq__q"><span>And what if my dog prefers something different?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>Tell us. Every dog is a whole world, and we would rather get to know yours than guess. You can update us on their preferences ahead of the next box, and we will make the adjustments we can so the next box feels a little more like them.</p></div>
+      </div>
+      <div class="faq__item">
+        <button type="button" class="faq__q"><span>Can I cancel anytime?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>Yes. Everything is flexible, we are here to make things fun for you and to fit your life. We know life happens, so you can skip a month or cancel, and you are always welcome to come back, whenever it suits you.</p></div>
+      </div>
+      <div class="faq__item">
+        <button type="button" class="faq__q"><span>How much does it cost?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>We have two plans, depending on how much you would like us to take off your plate each month.</p>
+          <p><strong>BONDIN Whole Pack (₪249 a month)</strong><br>The full box: tasty, high-quality treats that suit your dog, useful everyday and hygiene products, games and activities that bring you closer, a little something for you, and of course the pupdate, your monthly doggy date.</p>
+          <p><strong>BONDIN Fun Pack (₪149 a month)</strong><br>Just the fun of BONDIN, with the everyday products, games, activities, the surprise for you and the monthly pupdate.</p>
+          <p>You can start with one plan and switch to the other the following month. And shipping? On us, on both plans.</p></div>
+      </div>
+      <div class="faq__item">
+        <button type="button" class="faq__q"><span>And what if I have more questions?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>That is what we are here for. Write to us any time at bondin.pawmail@gmail.com. A real person will read your message and be happy to get to know you, answer and help.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap contact__grid">
+    <div class="contact__intro">
+      <p class="eyebrow">say hello</p>
+      <h2>Questions, stories, or your pup's goofiest moment</h2>
+      <p class="sub">We'd love to hear it. Write us anytime, we read every note.</p>
+      <div class="contact__meta">
+        <a href="mailto:bondin.pawmail@gmail.com">bondin.pawmail@gmail.com</a>
+      </div>
+    </div>
+
+    <form class="contact__form" id="contactForm" novalidate>
+      <input type="checkbox" id="cBot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+      <div class="contact__row">
+        <div class="field">
+          <label for="cName">Name</label>
+          <input type="text" id="cName" name="cName" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cEmail">Email</label>
+          <input type="email" id="cEmail" name="cEmail" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cPhone">Phone</label>
+        <input type="tel" id="cPhone" name="cPhone" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="cMessage">Message</label>
+        <textarea id="cMessage" name="cMessage" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">Send it over</button>
+      <p class="contact__status" id="contactStatus"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" id="finalcta">
+  <div class="wrap">
+    <h2>Your dog's next favorite day of the month starts here.</h2>
+    <form class="field-row final__form" id="finalForm">
+      <input type="email" id="finalEmail" placeholder="your@email.com" required aria-label="Email address">
+      <button type="submit" class="btn btn-primary">Join Bondin</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">
+          <img class="mark-img mark-img--footer" src="https://stavyesh.github.io/bondin-site/images/img-7256a989ab.png" alt="BONDIN">
+          <span>BONDIN</span>
+        </div>
+        <p class="footer__tagline">We're raising paws over here</p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="#inside">What's inside</a></li>
+        <li><a href="#join">Join the pack</a></li>
+        <li><a href="#story">Our story</a></li>
+        <li><a href="#shop">One-time kits</a></li>
+        <li><a href="#contact">Say hello</a></li>
+      </ul>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BONDIN. All rights reserved.</span>
+      <span>Made with real dog slobber and good intentions.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* nav scroll + mobile toggle */
+  var nav = document.getElementById('nav');
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  });
+  navToggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      nav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* smooth-scroll all internal anchor links (independent of native hash navigation) */
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    var id = link.getAttribute('href').slice(1);
+    if(!id) return;
+    var target = document.getElementById(id);
+    if(!target) return;
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+      try{ history.pushState(null, '', '#' + id); }catch(err){}
+    });
+  });
+
+  /* ---------------- plan selection ---------------- */
+  var PLANS = {
+    treats: {name:"BONDIN Whole Pack", price:"₪249"},
+    basic: {name:"BONDIN Fun Pack", price:"₪149"}
+  };
+  var selectedPlan = 'treats';
+  var planEl = document.getElementById('joinPlan');
+  function setPlan(key){
+    selectedPlan = key;
+    var p = PLANS[key];
+    planEl.textContent = "Your plan: " + p.name + " · " + p.price + " / month";
+  }
+  document.querySelectorAll('[data-plan]').forEach(function(el){
+    el.addEventListener('click', function(){ setPlan(el.getAttribute('data-plan')); });
+  });
+
+  /* ---------------- signup (hero / final / join) ---------------- */
+  var WEB3_KEY = "dfc07f60-bec7-488d-8bc3-eaed242f2514";
+  function sendToWeb3(payload){
+    payload.access_key = WEB3_KEY;
+    payload.from_name = "Bondin website";
+    return fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {"Content-Type": "application/json", "Accept": "application/json"},
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.json(); }).then(function(d){
+      if(!d.success){ throw new Error(d.message || "send failed"); }
+      return d;
+    });
+  }
+
+  function submitSignup(email, extra){
+    var data = {
+      subject: "New Bondin sign-up" + (extra && extra.dogName ? ": " + extra.dogName : ""),
+      email: email
+    };
+    if(extra){
+      if(extra.plan) data["Plan"] = extra.plan;
+      if(extra.dogName) data["Dog's name"] = extra.dogName;
+      if(extra.dogGender) data["Dog's gender"] = extra.dogGender;
+      if(extra.dogAge) data["Dog's age"] = extra.dogAge;
+      if(extra.dogNotes) data["More about them"] = extra.dogNotes;
+      if(extra.size) data["Size"] = extra.size;
+      if(extra.energy) data["Energy"] = extra.energy;
+      if(extra.parentName) data["Your name"] = extra.parentName;
+      if(extra.phone) data["Phone"] = extra.phone;
+      if(extra.address) data["Shipping address"] = extra.address;
+    }
+    return sendToWeb3(data);
+  }
+
+  document.getElementById('heroForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('heroEmail').value.trim();
+    if(!email) return;
+    document.getElementById('jEmail').value = email;
+    document.getElementById('join').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('finalForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('finalEmail').value.trim();
+    if(!email) return;
+    document.getElementById('jEmail').value = email;
+    document.getElementById('join').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('joinForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var dogName = document.getElementById('jDogName').value.trim();
+    var dogAge = document.getElementById('jDogAge').value.trim();
+    var dogNotes = document.getElementById('jDogNotes').value.trim();
+    var parentName = document.getElementById('jParentName').value.trim();
+    var phone = document.getElementById('jPhone').value.trim();
+    var address = document.getElementById('jAddress').value.trim();
+    var email = document.getElementById('jEmail').value.trim();
+    var dogGenderEl = document.querySelector('input[name="jDogGender"]:checked');
+    var sizeEl = document.querySelector('input[name="jSize"]:checked');
+    var energyEl = document.querySelector('input[name="jEnergy"]:checked');
+    var form = e.target;
+    var showSuccess = function(){
+      form.style.display = 'none';
+      document.querySelector('.join__head').style.display = 'none';
+      document.getElementById('joinSuccess').classList.add('is-active');
+    };
+    if(document.getElementById('jBot').checked){ showSuccess(); return; }
+    var btn = form.querySelector('button[type="submit"]');
+    var btnLabel = btn.textContent;
+    var errEl = document.getElementById('joinError');
+    errEl.textContent = '';
+    btn.disabled = true;
+    btn.textContent = "Sending...";
+    submitSignup(email, {
+      plan: PLANS[selectedPlan].name + ' (' + PLANS[selectedPlan].price + ')',
+      dogName: dogName,
+      dogGender: dogGenderEl ? dogGenderEl.value : '',
+      dogAge: dogAge,
+      dogNotes: dogNotes,
+      size: sizeEl ? sizeEl.value : '',
+      energy: energyEl ? energyEl.value : '',
+      parentName: parentName,
+      phone: phone,
+      address: address
+    }).then(showSuccess).catch(function(){
+      btn.disabled = false;
+      btn.textContent = btnLabel;
+      errEl.textContent = "Something went wrong. Please try again, or write to us at bondin.pawmail@gmail.com.";
+    });
+  });
+
+  /* ---------------- FAQ accordion ---------------- */
+  var faqItems = document.querySelectorAll('.faq__item');
+  faqItems.forEach(function(item){
+    item.querySelector('.faq__q').addEventListener('click', function(){
+      var wasOpen = item.classList.contains('is-open');
+      faqItems.forEach(function(i){ i.classList.remove('is-open'); });
+      if(!wasOpen) item.classList.add('is-open');
+    });
+  });
+
+  /* ---------------- contact form ---------------- */
+  var contactForm = document.getElementById('contactForm');
+  var contactStatus = document.getElementById('contactStatus');
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cName').value.trim();
+    var email = document.getElementById('cEmail').value.trim();
+    var phone = document.getElementById('cPhone').value.trim();
+    var message = document.getElementById('cMessage').value.trim();
+    if(!name || !email || !message){
+      contactStatus.textContent = "Almost there! Please add your name, email and message.";
+      return;
+    }
+    if(document.getElementById('cBot').checked){ contactStatus.textContent = "Thank you! We got your message and will be in touch soon."; return; }
+    contactStatus.textContent = "Sending...";
+    var msg = {subject: "Message from " + name + " via Bondin site", name: name, email: email, message: message};
+    if(phone) msg["Phone"] = phone;
+    sendToWeb3(msg).then(function(){
+      contactStatus.textContent = "Thank you! We got your message and will be in touch soon.";
+      contactForm.reset();
+    }).catch(function(){
+      contactStatus.textContent = "Something went wrong. Please try again, or write to us at bondin.pawmail@gmail.com.";
+    });
+  });
+
+  /* ---------------- equal-height shop kit cards ---------------- */
+  var shopCards = document.querySelectorAll('.shop__card');
+  var equalizeTimer;
+  function equalizeShopCards(){
+    if(!shopCards.length) return;
+    shopCards.forEach(function(c){ c.style.minHeight = ''; });
+    var max = 0;
+    shopCards.forEach(function(c){ max = Math.max(max, c.offsetHeight); });
+    shopCards.forEach(function(c){ c.style.minHeight = max + 'px'; });
+  }
+  window.addEventListener('load', equalizeShopCards);
+  window.addEventListener('resize', function(){
+    clearTimeout(equalizeTimer);
+    equalizeTimer = setTimeout(equalizeShopCards, 150);
+  });
+})();
+</script>
+</body>
+</html>

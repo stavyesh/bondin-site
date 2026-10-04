@@ -1,0 +1,1081 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BONDIN | מחוברים באהבה פרוותית במיוחד</title>
+<meta name="description" content="קופסת הפתעה חודשית לכלבים ולבני האדם שלהם: חטיפים, מוצרי יומיום, משחקים ומשהו קטן גם בשבילכם, ועוד ערכות בהזדמנות אחרונה כל עוד הן זמינות.">
+<link rel="icon" href="data:image/svg+xml,<svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22><text y=%22.9em%22 font-size=%2290%22>🐾</text></svg>">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Frank+Ruhl+Libre:ital,wght@0,300;0,400;0,500;0,600;0,700;0,900;1,400;1,500&family=Rubik:ital,wght@0,400;0,500;0,600;0,700;0,800;1,500&family=Gveret+Levin&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --pink:#EC92B2;
+    --pink-deep:#D9749A;
+    --pink-pale:#FBE3EB;
+    --cream:#FEFDF7;
+    --paper:#F7F0E2;
+    --tan:#CC9E6C;
+    --tan-deep:#AD8154;
+    --sky:#A3D0F0;
+    --sky-deep:#7CB8E3;
+    --ink:#2A292E;
+    --ink-soft:#5B5960;
+    --ink-faint:#8B8891;
+    --line:rgba(42,41,46,0.14);
+
+    --font-display:'Frank Ruhl Libre', ui-serif, Georgia, serif;
+    --font-body:'Rubik', ui-sans-serif, system-ui, sans-serif;
+    --font-hand:'Gveret Levin', 'Frank Ruhl Libre', ui-serif, serif;
+
+    --measure:62ch;
+    --radius-lg:28px;
+    --radius-md:18px;
+    --radius-sm:10px;
+    --shadow-soft:0 18px 40px -22px rgba(42,41,46,0.35);
+  }
+
+  *,*::before,*::after{box-sizing:border-box;}
+  html{scroll-behavior:smooth;overflow-x:hidden;}
+  @media (prefers-reduced-motion:reduce){
+    html{scroll-behavior:auto;}
+    *,*::before,*::after{animation-duration:0.01ms !important;animation-iteration-count:1 !important;transition-duration:0.01ms !important;}
+  }
+
+  body{
+    margin:0;
+    background:var(--cream);
+    color:var(--ink);
+    font-family:var(--font-body);
+    font-size:17px;
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img,svg{display:block;max-width:100%;}
+  a{color:inherit;}
+  button{font:inherit;}
+
+  h1,h2,h3,h4{
+    font-family:var(--font-display);
+    font-weight:600;
+    margin:0;
+    line-height:1.08;
+    letter-spacing:-0.01em;
+  }
+
+  .wrap{
+    max-width:1180px;
+    margin:0 auto;
+    padding:0 32px;
+  }
+  @media (max-width:640px){ .wrap{padding:0 20px;} }
+
+  :focus-visible{
+    outline:3px solid var(--sky-deep);
+    outline-offset:3px;
+    border-radius:4px;
+  }
+
+  .icon-defs{position:absolute;width:0;height:0;overflow:hidden;}
+
+  /* ---------- buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:10px;
+    padding:15px 30px;
+    border-radius:999px;
+    border:2px solid transparent;
+    font-family:var(--font-body);
+    font-weight:700;
+    font-size:0.98rem;
+    cursor:pointer;
+    text-decoration:none;
+    transition:transform .18s ease, box-shadow .18s ease, background-color .18s ease, border-color .18s ease, color .18s ease;
+  }
+  .btn:hover{transform:translateY(-2px);}
+  .btn:active{transform:translateY(0);}
+  .btn-primary{background:var(--ink);color:var(--cream);}
+  .btn-primary:hover{background:var(--pink-deep);box-shadow:var(--shadow-soft);}
+  .btn-ghost{background:transparent;color:var(--ink);border-color:var(--ink);}
+  .btn-ghost:hover{background:var(--ink);color:var(--cream);}
+  .btn-block{width:100%;justify-content:center;}
+  .btn-sm{padding:10px 20px;font-size:.88rem;}
+
+  .field-row{display:flex;gap:10px;flex-wrap:wrap;}
+  .field-row input[type=email]{
+    flex:1 1 220px;padding:15px 20px;border-radius:999px;border:1.5px solid var(--line);
+    background:#fff;color:var(--ink);font-size:1rem;font-family:var(--font-body);
+  }
+  .field-row input::placeholder{color:var(--ink-faint);}
+  .field-row input:focus{border-color:var(--pink-deep);outline:none;box-shadow:0 0 0 4px var(--pink-pale);}
+
+  .field{margin-bottom:20px;}
+  .field label{display:block;font-weight:700;font-size:.9rem;margin-bottom:8px;}
+  .field input[type=text],
+  .field input[type=email],
+  .field input[type=tel],
+  .field input[type=number],
+  .field textarea{
+    width:100%;
+    padding:13px 16px;
+    border:1.5px solid var(--line);
+    border-radius:var(--radius-sm);
+    background:#fff;
+    font-family:var(--font-body);
+    font-size:1rem;
+    color:var(--ink);
+    transition:border-color .2s ease, box-shadow .2s ease;
+  }
+  .field input:focus,.field textarea:focus{
+    border-color:var(--pink-deep);
+    box-shadow:0 0 0 4px var(--pink-pale);
+    outline:none;
+  }
+  .field textarea{resize:vertical;min-height:110px;}
+
+  .pillgroup{display:flex;flex-wrap:wrap;gap:10px;}
+  .pillgroup input{position:absolute;opacity:0;width:0;height:0;}
+  .pillgroup label{
+    padding:10px 18px;
+    border:1.5px solid var(--line);
+    border-radius:999px;
+    cursor:pointer;
+    font-weight:700;
+    font-size:.92rem;
+    color:var(--ink-soft);
+    transition:all .18s ease;
+    margin:0;
+  }
+  .pillgroup input:checked + label{background:var(--ink); color:var(--cream); border-color:var(--ink);}
+  .pillgroup input:focus-visible + label{outline:3px solid var(--sky-deep);outline-offset:2px;}
+  .pillgroup label:hover{border-color:var(--pink-deep);}
+
+  /* ================= NAV ================= */
+  .nav{
+    position:sticky; top:0; z-index:50;
+    background:rgba(254,253,247,0.88);
+    backdrop-filter:blur(10px);
+    border-bottom:1px solid transparent;
+    transition:border-color .25s ease, box-shadow .25s ease;
+  }
+  .nav.is-scrolled{border-color:var(--line); box-shadow:0 6px 24px -18px rgba(42,41,46,.4);}
+  .nav__row{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 32px;
+    max-width:1180px; margin:0 auto;
+  }
+  .nav__brand{display:flex;align-items:center;gap:10px;text-decoration:none;color:var(--ink);}
+  .mark-img{display:block;object-fit:contain;}
+  .mark-img--nav{width:30px;height:auto;}
+  .mark-img--footer{width:30px;height:auto;}
+  .nav__brand span{font-family:var(--font-display);font-weight:700;font-size:1.25rem;letter-spacing:.01em;}
+  .nav__links{display:flex;align-items:center;gap:30px;list-style:none;margin:0;padding:0;}
+  .nav__links a{text-decoration:none;font-weight:600;font-size:.95rem;color:var(--ink-soft);padding:6px 2px;border-bottom:2px solid transparent;transition:color .2s, border-color .2s;}
+  .nav__links a:hover{color:var(--ink);border-color:var(--pink);}
+  .nav__cta{margin-right:8px;}
+  .nav .nav__cta a{color:var(--cream);padding:11px 30px;}
+  .nav .nav__cta a:hover{color:var(--cream);}
+  .nav__toggle{display:none;background:none;border:none;cursor:pointer;padding:6px;}
+  .nav__toggle span{display:block;width:24px;height:2px;background:var(--ink);margin:5px 0;transition:transform .25s ease, opacity .25s ease;}
+  .nav.is-open .nav__toggle span:nth-child(1){transform:translateY(7px) rotate(45deg);}
+  .nav.is-open .nav__toggle span:nth-child(2){opacity:0;}
+  .nav.is-open .nav__toggle span:nth-child(3){transform:translateY(-7px) rotate(-45deg);}
+
+  @media (max-width:860px){
+    .nav__links{
+      position:absolute; top:100%; left:0; right:0;
+      flex-direction:column; align-items:stretch; gap:0;
+      background:var(--cream); border-bottom:1px solid var(--line);
+      max-height:0; overflow:hidden; transition:max-height .3s ease;
+      box-shadow:0 16px 24px -18px rgba(42,41,46,.35);
+    }
+    .nav.is-open .nav__links{max-height:440px;}
+    .nav__links li{border-top:1px solid var(--line);}
+    .nav__links a{display:block;padding:16px 32px;}
+    .nav__cta{margin:14px 32px 20px;}
+    .nav__toggle{display:block;}
+  }
+
+  /* ================= HERO ================= */
+  .hero{background:var(--cream);padding:70px 0 90px;overflow:hidden;position:relative;}
+  .hero__grid{display:grid;grid-template-columns:1.05fr .95fr;gap:50px;align-items:center;}
+  .hero__eyebrow{font-family:var(--font-hand);font-size:1.5rem;color:var(--tan-deep);margin-bottom:14px;display:block;}
+  .hero h1{font-size:clamp(2.3rem,4.6vw,3.4rem);margin-bottom:20px;max-width:15ch;}
+  .hero__sub{font-size:clamp(1.02rem,1.6vw,1.15rem);color:var(--ink-soft);max-width:48ch;margin-bottom:28px;}
+  .hero__note{margin-top:14px;font-size:.86rem;color:var(--ink-faint);}
+  .hero__visual{position:relative;padding:10px;}
+  .hero__blob{position:absolute;border-radius:44% 56% 62% 38% / 48% 42% 58% 52%;background:var(--pink-pale);inset:6% 8% 2% 0%;z-index:0;}
+  .hero__photo{position:relative;z-index:1;border-radius:44% 56% 62% 38% / 48% 42% 58% 52%;overflow:hidden;border:6px solid var(--cream);box-shadow:var(--shadow-soft);}
+  .hero__photo img{width:100%;height:auto;display:block;}
+  .hero__tag{position:absolute;z-index:2;bottom:20px;right:20px;background:var(--ink);color:var(--cream);padding:12px 18px;border-radius:16px;font-size:.85rem;font-weight:600;box-shadow:var(--shadow-soft);max-width:190px;transform:rotate(4deg);}
+  .hero__tag strong{display:block;font-family:var(--font-hand);font-size:1.3rem;color:var(--pink);}
+  @media (max-width:900px){
+    .hero__grid{grid-template-columns:1fr;}
+    .hero__visual{order:-1;max-width:340px;margin:0 auto 36px;}
+  }
+
+  /* ================= TRUST STRIP ================= */
+  .trust{background:var(--paper);padding:36px 0;}
+  .trust__row{display:flex;justify-content:center;flex-wrap:wrap;gap:28px;text-align:center;}
+  .trust__item{display:flex;align-items:center;gap:10px;font-weight:700;font-size:.92rem;color:var(--ink);}
+  .trust__item svg{width:20px;height:20px;color:var(--pink-deep);flex:none;}
+
+  /* ================= HOW IT WORKS ================= */
+  .how{padding:100px 0;background:var(--cream);}
+  .how__head{max-width:640px;margin:0 auto 56px;text-align:center;}
+  .how__head p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--tan-deep);margin-bottom:4px;}
+  .how__head h2{font-size:clamp(2rem,4.2vw,2.9rem);}
+  .how__head p.sub{color:var(--ink-soft);margin-top:14px;}
+  .how__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  .how__step{padding:0 30px;}
+  .how__step + .how__step{border-right:1px dashed var(--line);}
+  .how__num{font-family:var(--font-display);font-style:italic;font-size:2.6rem;color:var(--pink-deep);line-height:1;margin-bottom:14px;}
+  .how__step h3{font-size:1.15rem;margin-bottom:8px;}
+  .how__step p{color:var(--ink-soft);margin:0;font-size:.96rem;}
+  @media (max-width:820px){
+    .how__grid{grid-template-columns:1fr;gap:36px;}
+    .how__step + .how__step{border-right:none;padding-top:32px;border-top:1px dashed var(--line);}
+  }
+
+  /* ================= VALUES ================= */
+  .values{background:var(--cream);padding:76px 0;}
+  .values__grid{display:grid;grid-template-columns:repeat(3,1fr);gap:0;}
+  .values__item{padding:18px 34px;text-align:right;border-right:1px dashed var(--line);}
+  .values__item:first-child{border-right:none;padding-right:0;}
+  .values__item:last-child{padding-left:0;}
+  .values__item h3{font-size:clamp(1.6rem,3vw,2.1rem);font-style:italic;font-weight:500;margin-bottom:12px;}
+  .values__item p{color:var(--ink-soft);margin:0;font-size:.98rem;}
+  @media (max-width:760px){
+    .values__grid{grid-template-columns:1fr;gap:30px;}
+    .values__item{border-right:none;padding:0 0 26px;border-bottom:1px dashed var(--line);}
+    .values__item:last-child{border-bottom:none;padding-bottom:0;}
+  }
+
+  /* ================= STORY ================= */
+  .story{padding:100px 0;}
+  .story__grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:64px;align-items:center;}
+  .story__card{position:relative;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-md);padding:30px;box-shadow:var(--shadow-soft);transform:rotate(-2.2deg);}
+  .story__photo{width:100%;height:auto;display:block;border-radius:calc(var(--radius-md) - 10px);}
+  .story__tape{position:absolute; top:-16px; left:50%; transform:translateX(-50%) rotate(-3deg); width:92px; height:30px; background:rgba(163,208,240,.55); box-shadow:0 2px 6px rgba(42,41,46,.12);}
+  .story__caption{font-family:var(--font-hand);font-size:1.15rem;color:var(--ink-soft);text-align:center;margin-top:14px;transform:rotate(-1deg);}
+  .story__eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--pink-deep);transform:rotate(-1.5deg);display:inline-block;margin-bottom:4px;}
+  .story__text h2{font-size:clamp(1.9rem,4vw,2.6rem);margin-bottom:18px;}
+  .story__text p{color:var(--ink-soft);margin:0 0 16px;}
+  .story__text p:last-child{margin-bottom:0;color:var(--ink);font-weight:600;}
+  @media (max-width:860px){
+    .story__grid{grid-template-columns:1fr;gap:40px;}
+    .story__card{transform:none;max-width:360px;margin:0 auto;}
+  }
+
+  /* ================= INSIDE (dark band) ================= */
+  .inside{background:var(--ink);color:var(--cream);padding:96px 0;}
+  .inside__head{text-align:center;max-width:620px;margin:0 auto 52px;}
+  .inside__head p.eyebrow{font-family:var(--font-hand); font-size:1.4rem; color:var(--pink); margin-bottom:6px;}
+  .inside__head h2{font-size:clamp(2rem,4.4vw,2.9rem);color:var(--cream);}
+  .inside__slip{background:var(--cream);color:var(--ink);border-radius:var(--radius-lg);max-width:720px;margin:0 auto;padding:8px;box-shadow:0 30px 60px -20px rgba(0,0,0,.5);}
+  .inside__slip-inner{border:2px dashed var(--tan);border-radius:calc(var(--radius-lg) - 8px);padding:38px 40px;}
+  .inside__slip-head{display:flex; justify-content:space-between; align-items:baseline; border-bottom:1px solid var(--line); padding-bottom:14px; margin-bottom:18px;}
+  .inside__slip-head span:first-child{font-family:var(--font-display);font-weight:700;font-size:1.15rem;}
+  .inside__slip-head span:last-child{font-family:var(--font-hand);font-size:1.15rem;color:var(--pink-deep);}
+  .inside__list{list-style:none;margin:0;padding:0;}
+  .inside__list li{display:flex; gap:14px; align-items:flex-start; padding:13px 0; border-bottom:1px dashed var(--line);}
+  .inside__list li:last-child{border-bottom:none;padding-bottom:0;}
+  .inside__list svg{width:20px;height:20px;flex:none;margin-top:3px;color:var(--tan-deep);}
+  .inside__list strong{display:block;font-size:1rem;}
+  .inside__list span{color:var(--ink-soft);font-size:.94rem;}
+  .inside__note{max-width:720px;margin:26px auto 0;text-align:center;color:var(--cream-soft, rgba(254,253,247,.75));font-size:.92rem;}
+
+  /* ================= PRICING ================= */
+  .pricing{padding:100px 0;background:var(--paper);}
+  .pricing__head{text-align:center;max-width:560px;margin:0 auto 50px;}
+  .pricing__head p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--pink-deep);margin-bottom:4px;}
+  .pricing__head h2{font-size:clamp(2rem,4.2vw,2.9rem);}
+  .pricing__head p.sub{color:var(--ink-soft);margin-top:14px;}
+  .pricing__card{display:flex;flex-direction:column;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-lg);box-shadow:var(--shadow-soft);padding:44px 40px;position:relative;overflow:hidden;}
+  .pricing__glow{position:absolute;width:220px;height:220px;background:var(--pink-pale);opacity:.8;filter:blur(50px);top:-90px;left:-70px;border-radius:50%;}
+  .pricing__plan{position:relative;font-weight:800;text-transform:uppercase;letter-spacing:.1em;font-size:1.2rem;color:var(--tan-deep);margin-bottom:12px;}
+  .pricing__amount{position:relative;font-family:var(--font-display);font-size:3.6rem;line-height:1;margin-bottom:10px;color:var(--ink);}
+  .pricing__amount span{font-family:var(--font-body);font-size:1rem;color:var(--ink-soft);font-weight:600;}
+  .pricing__desc{position:relative;color:var(--ink-soft);margin:0 0 26px;}
+  .pricing__list{position:relative;list-style:none;margin:0 0 30px;padding:0;}
+  .pricing__list li{display:flex;gap:12px;align-items:flex-start;padding:11px 0;border-top:1px dashed var(--line);font-size:.96rem;color:var(--ink);}
+  .pricing__list li:first-child{border-top:none;}
+  .pricing__list svg{width:18px;height:18px;flex:none;margin-top:3px;color:var(--tan-deep);}
+  .pricing__foot{position:relative;text-align:center;font-size:.85rem;color:var(--ink-faint);margin-top:14px;}
+  .pricing__cards{display:grid;grid-template-columns:repeat(2,1fr);gap:24px;max-width:900px;margin:0 auto;align-items:stretch;}
+  .pricing__card .pricing__plan{margin-bottom:16px;}
+  .pricing__card .btn{margin-top:auto;}
+  .pricing__card--featured{box-shadow:0 0 0 2px var(--pink-deep), var(--shadow-soft);}
+  .pricing__card .pricing__tag{position:relative;margin:0 0 26px;color:var(--ink-soft);font-size:.92rem;}
+  .pricing__badge{position:absolute;top:20px;inset-inline-end:20px;z-index:1;background:var(--pink-pale);color:var(--pink-deep);font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;}
+  @media (max-width:860px){.pricing__cards{grid-template-columns:1fr;max-width:480px;}}
+
+  /* ================= JOIN FORM ================= */
+  .join{padding:100px 0;background:var(--cream);}
+  .join__card{max-width:640px;margin:0 auto;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-lg);padding:44px 40px;box-shadow:var(--shadow-soft);}
+  .join__head{text-align:center;margin-bottom:32px;}
+  .join__head h2{font-size:clamp(1.8rem,3.4vw,2.3rem);}
+  .join__head p{color:var(--ink-soft);margin-top:12px;}
+  .join__error{margin-top:12px;font-size:.9rem;color:var(--pink-deep);text-align:center;}
+  .join__head .join__plan{margin-top:10px;font-weight:700;font-size:.92rem;color:var(--pink-deep);}
+  .join__row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  .join__col .field:last-child{margin-bottom:0;}
+  .join__row--notes{grid-template-columns:3fr 2fr;}
+  .join__notesfield{display:flex;flex-direction:column;}
+  .join__notesfield textarea{flex:1;min-height:0;}
+  .join__section{font-weight:800;font-size:.78rem;letter-spacing:.06em;text-transform:uppercase;color:var(--pink-deep);margin:0 0 14px;}
+  .join__section:not(:first-child){margin-top:8px;padding-top:24px;border-top:1px solid var(--line);}
+  @media (max-width:560px){.join__row{grid-template-columns:1fr;} .join__card{padding:32px 24px;}}
+  .join__success{display:none;text-align:center;}
+  .join__success.is-active{display:block;}
+  .join__success svg{width:48px;height:48px;color:var(--pink-deep);margin:0 auto 16px;}
+
+  /* ================= BOX PREVIEW ================= */
+  .boxshow{padding:100px 0;background:var(--paper);}
+  .boxshow__grid{display:grid;grid-template-columns:.9fr 1.1fr;gap:56px;align-items:center;}
+  .boxshow p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--tan-deep);margin-bottom:4px;display:block;}
+  .boxshow h2{font-size:clamp(2rem,4vw,2.8rem);margin-bottom:18px;}
+  .boxshow p.copy{color:var(--ink-soft);font-size:1.02rem;margin:0 0 26px;max-width:42ch;}
+  .boxshow__img{border-radius:var(--radius-lg);overflow:hidden;box-shadow:var(--shadow-soft);}
+  .boxshow__img img{width:100%;height:auto;display:block;}
+  @media (max-width:900px){.boxshow__grid{grid-template-columns:1fr;text-align:center;} .boxshow p.copy{margin-left:auto;margin-right:auto;}}
+
+  /* ================= SHOP ================= */
+  .shop{background:var(--paper);padding:100px 0;}
+  .shop__head{text-align:center;max-width:620px;margin:0 auto 50px;}
+  .shop__head p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--tan-deep);margin-bottom:4px;}
+  .shop__head h2{font-size:clamp(2rem,4.4vw,2.9rem);}
+  .shop__head p.sub{color:var(--ink-soft);margin-top:14px;}
+  .shop__grid{display:grid; grid-template-columns:repeat(3,1fr); gap:22px; max-width:960px; margin:0 auto; align-items:start;}
+  @media (max-width:860px){ .shop__grid{grid-template-columns:1fr;max-width:420px;} }
+  .shop__card{background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-md);padding:28px 24px;box-shadow:var(--shadow-soft);text-align:right;display:flex;flex-direction:column;}
+  .shop__card .btn{margin-top:auto;}
+  .shop__badge{display:inline-block;align-self:flex-start;background:var(--pink-pale);color:var(--pink-deep);font-weight:800;font-size:.72rem;letter-spacing:.08em;text-transform:uppercase;padding:5px 12px;border-radius:999px;margin-bottom:14px;}
+  .shop__card h3{font-size:1.3rem;margin-bottom:8px;}
+  .shop__card > p{color:var(--ink-soft);font-size:.94rem;margin:0 0 6px;}
+  .shop__sketch{width:100%;height:auto;display:block;margin:8px 0 20px;border-radius:10px;}
+  .shop__slot{border:2px dashed var(--line);border-radius:var(--radius-md);padding:34px 24px;text-align:center;min-height:220px;display:flex; flex-direction:column; align-items:center; justify-content:center; color:var(--ink-faint);}
+  .shop__slot svg{width:34px;height:34px;margin-bottom:14px;color:var(--ink-faint);}
+  .shop__slot span{font-weight:700;font-size:.92rem;}
+  .shop__empty{max-width:640px;margin:34px auto 0;text-align:center;background:var(--cream);border:1px solid var(--line);border-radius:var(--radius-md);padding:32px 34px;box-shadow:var(--shadow-soft);}
+  .shop__empty h3{font-size:1.25rem;margin-bottom:10px;}
+  .shop__empty p{color:var(--ink-soft);margin:0 0 20px;}
+
+  /* ================= FAQ ================= */
+  .faq{padding:100px 0;background:var(--cream);}
+  .faq__head{text-align:center;max-width:560px;margin:0 auto 46px;}
+  .faq__head p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--pink-deep);margin-bottom:4px;}
+  .faq__head h2{font-size:clamp(2rem,4.2vw,2.9rem);}
+  .faq__list{max-width:740px;margin:0 auto;}
+  .faq__item{border-bottom:1px dashed var(--line);}
+  .faq__item:first-child{border-top:1px dashed var(--line);}
+  .faq__q{width:100%;display:flex;justify-content:space-between;align-items:center;gap:20px;background:none;border:none;text-align:right;padding:22px 4px;cursor:pointer;font-family:var(--font-body);font-weight:700;font-size:1.02rem;color:var(--ink);}
+  .faq__q .plus{flex:none;width:22px;height:22px;position:relative;}
+  .faq__q .plus::before,.faq__q .plus::after{content:'';position:absolute;background:var(--ink);top:50%;left:50%;transform:translate(-50%,-50%);transition:transform .25s ease,opacity .25s ease;}
+  .faq__q .plus::before{width:16px;height:2px;}
+  .faq__q .plus::after{width:2px;height:16px;}
+  .faq__item.is-open .plus::after{transform:translate(-50%,-50%) rotate(90deg);opacity:0;}
+  .faq__a{max-height:0;overflow:hidden;transition:max-height .3s ease;}
+  .faq__a strong{color:var(--ink);}
+  .faq__a p{color:var(--ink-soft);margin:0 0 22px;max-width:60ch;font-size:.96rem;}
+  .faq__item.is-open .faq__a{max-height:900px;}
+
+  /* ================= CONTACT ================= */
+  .contact{padding:104px 0;}
+  .contact__grid{display:grid;grid-template-columns:0.85fr 1.15fr;gap:60px;align-items:flex-start;}
+  .contact__intro p.eyebrow{font-family:var(--font-hand);font-size:1.4rem;color:var(--pink-deep);margin-bottom:4px;}
+  .contact__intro h2{font-size:clamp(2rem,4.2vw,2.7rem);margin-bottom:16px;}
+  .contact__intro p.sub{color:var(--ink-soft);margin:0 0 26px;max-width:38ch;}
+  .contact__meta{display:flex;flex-direction:column;gap:10px;}
+  .contact__meta a{text-decoration:none;font-weight:700;border-bottom:2px solid var(--pink);padding-bottom:1px;}
+  .contact__form{background:var(--cream); border:1px solid var(--line); border-radius:var(--radius-lg); padding:34px; box-shadow:var(--shadow-soft);}
+  .contact__row{display:grid;grid-template-columns:1fr 1fr;gap:16px;}
+  @media (max-width:560px){ .contact__row{grid-template-columns:1fr;} .contact__grid{grid-template-columns:1fr;gap:40px;} }
+  .contact__status{margin-top:14px;font-size:.9rem;color:var(--ink-soft);min-height:1.4em;}
+
+  /* ================= FINAL CTA ================= */
+  .final{padding:110px 0;text-align:center;background:var(--paper);}
+  .final h2{font-size:clamp(2.1rem,4.6vw,3rem);max-width:16ch;margin:0 auto 26px;}
+  .final__form{max-width:480px;margin:0 auto;}
+
+  /* ================= FOOTER ================= */
+  .footer{background:var(--ink);color:var(--cream);padding:64px 0 34px;}
+  .footer__top{display:flex;justify-content:space-between;align-items:flex-start;flex-wrap:wrap;gap:36px;padding-bottom:40px;border-bottom:1px solid rgba(254,253,247,.14);}
+  .footer__brand{display:flex;align-items:center;gap:10px;}
+  .footer__brand span{font-family:var(--font-display);font-weight:700;font-size:1.3rem;}
+  .footer__tagline{font-size:.82rem;letter-spacing:.14em;text-transform:uppercase;color:var(--tan);margin-top:8px;}
+  .footer__links{display:flex;gap:34px;flex-wrap:wrap;list-style:none;margin:0;padding:0;}
+  .footer__links a{text-decoration:none;color:var(--cream);opacity:.82;font-weight:600;font-size:.94rem;}
+  .footer__links a:hover{opacity:1;color:var(--pink);}
+  .footer__bottom{display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;padding-top:26px;font-size:.85rem;color:rgba(254,253,247,.6);}
+</style>
+</head>
+<body>
+
+<svg class="icon-defs" aria-hidden="true">
+  <symbol id="icon-paw" viewBox="0 0 40 40" fill="currentColor">
+    <ellipse cx="20" cy="27" rx="9.5" ry="7.5"/>
+    <circle cx="9" cy="15" r="3.6"/>
+    <circle cx="16" cy="8" r="3.6"/>
+    <circle cx="25" cy="8" r="3.6"/>
+    <circle cx="31" cy="15" r="3.6"/>
+  </symbol>
+  <symbol id="icon-check" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.4" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M4 12.5 9 18 20 6"/>
+  </symbol>
+  <symbol id="icon-mail" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="3" y="5" width="18" height="14" rx="2.5"/>
+    <path d="M4 7l8 6 8-6"/>
+  </symbol>
+  <symbol id="ic-shield" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3l7 3v6c0 4.5-3 7.5-7 9-4-1.5-7-4.5-7-9V6z"/></symbol>
+  <symbol id="ic-seal" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M8 3h8l5 5v8l-5 5h-8l-5-5v-8z"/><path d="M8 12.3l2.6 2.6L16.5 9"/></symbol>
+  <symbol id="ic-heart-line" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 20c-6-4-9-7.5-9-11a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 3.5-3 7-9 11z"/></symbol>
+</svg>
+
+<!-- ================= NAV ================= -->
+<nav class="nav" id="nav">
+  <div class="nav__row">
+    <a class="nav__brand" href="#top">
+      <img class="mark-img mark-img--nav" src="https://stavyesh.github.io/bondin-site/images/img-75195fbc65.png" alt="BONDIN">
+      <span>BONDIN</span>
+    </a>
+    <button type="button" class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false" aria-controls="navLinks">
+      <span></span><span></span><span></span>
+    </button>
+    <ul class="nav__links" id="navLinks">
+      <li><a href="#inside">מה יש בפנים</a></li>
+      <li><a href="#join">הצטרפו ללהקה שלנו</a></li>
+      <li><a href="#story">הסיפור שלנו</a></li>
+      <li><a href="#shop">ערכות חד פעמיות</a></li>
+      <li><a href="#contact">בואו נדבר</a></li>
+      <li class="nav__cta"><a class="btn btn-primary btn-sm" href="#join">הצטרפו אלינו!</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- ================= HERO ================= -->
+<header class="hero" id="top">
+  <div class="wrap hero__grid">
+    <div>
+      <span class="hero__eyebrow">הקופסה שהכלב שלכם מחכה לה בהתלהבות</span>
+      <h1>הפתעה חודשית בשבילך ובשביל החבר הכי טוב שלך.</h1>
+      <p class="hero__sub">בונדין היא חבילה חודשית שהופכת את גידול הכלב לקל יותר. יש בה כל מה ששניכם צריכים: חטיפים איכותיים, מוצרי יומיום, משחקים כיפיים, משהו קטן בשבילכם, ודייט כלבלבי כיפי שמגיע איתו. אנחנו דואגים לכל זה. אתם מפסיקים לנחש מה הם צריכים. הם מתחילים לחכות ליד הדלת ביום המשלוח.</p>
+      <form class="field-row" id="heroForm">
+        <input type="email" id="heroEmail" placeholder="your@email.com" required aria-label="כתובת אימייל">
+        <button type="submit" class="btn btn-primary">בואו נתחיל</button>
+      </form>
+      <p class="hero__note">בלי ספאם, רק דברים של כלבים.</p>
+    </div>
+    <div class="hero__visual">
+      <div class="hero__blob"></div>
+      <div class="hero__photo">
+        <img src="https://stavyesh.github.io/bondin-site/images/img-d45d7c91e8.png" alt="Buli, mid-laugh in the park">
+      </div>
+      <div class="hero__tag"><strong>בולי</strong>הסיבה שכל זה קיים</div>
+    </div>
+  </div>
+</header>
+
+<!-- ================= TRUST STRIP ================= -->
+<section class="trust">
+  <div class="wrap trust__row">
+    <div class="trust__item"><svg><use href="#ic-shield"/></svg>נבחר בקפידה על ידי הורים לכלבים, לא על ידי אלגוריתם</div>
+    <div class="trust__item"><svg><use href="#ic-seal"/></svg>כל מוצר נבדק לאיכות לפני שהוא יוצא לדרך</div>
+    <div class="trust__item"><svg><use href="#ic-heart-line"/></svg>קצת יותר אהבה בכל קופסה</div>
+  </div>
+</section>
+
+<!-- ================= HOW IT WORKS ================= -->
+<section class="how" id="how">
+  <div class="wrap">
+    <div class="how__head">
+      <p class="eyebrow">פשוט וקל</p>
+      <h2>שלושה שלבים. אחר כך רק נשאר לחכות לדואר.</h2>
+      <p class="sub">שאלון קצר כדי שנכיר קצת והחבילה בדרך.</p>
+    </div>
+    <div class="how__grid">
+      <div class="how__step">
+        <span class="how__num">01</span>
+        <h3>ספרו לנו על הכלב שלכם</h3>
+        <p>שם, גודל ורמת אנרגיה, הדברים שבאמת קובעים מה נכנס לקופסה.</p>
+      </div>
+      <div class="how__step">
+        <span class="how__num">02</span>
+        <h3>אנחנו בונים את הקופסה</h3>
+        <p>חטיפים טעימים, מוצרים בסיסיים ומשחק או שניים, מותאמים לכלב שלכם באופן ספציפי, בחבילה מלאת מחשבה.</p>
+      </div>
+      <div class="how__step">
+        <span class="how__num">03</span>
+        <h3>אנחנו ממשיכים להיות שם</h3>
+        <p>כל חודש, מותאם לאיך שהכלב שלכם גדל ומשתנה. אתם יכולים להיות רגועים כי אנחנו על זה, והם זוכים לחוות את הזמן הכי כיפי שלהם.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= WHAT'S INSIDE ================= -->
+<section class="inside" id="inside">
+  <div class="wrap">
+    <div class="inside__head">
+      <p class="eyebrow">בעיקרון חיבוק בקופסה</p>
+      <h2>מה יש בפנים, כל חודש</h2>
+    </div>
+    <div class="inside__slip">
+      <div class="inside__slip-inner">
+        <div class="inside__slip-head">
+          <span>הקופסה של החודש</span>
+          <span>ארוז באהבה</span>
+        </div>
+        <ul class="inside__list">
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>חטיפים איכותיים</strong><span>חטיפים רכים, עצמות, או משהו באמצע, מותאם למה שהכלב שלכם באמת אוהב, ויכול לאכול.</span></div>
+          </li>
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>מוצרי יומיום והיגיינה</strong><span>שקיות הקקי, משחת השיניים ועוד שכנראה הייתם שוכחים להזמין מחדש.</span></div>
+          </li>
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>משחקים לחיזוק הקשר</strong><span>משחקים ותרגילים פשוטים שנועדו לחזק את הקשר ביניכם, לא רק לשרוף אנרגיה.</span></div>
+          </li>
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>משהו קטן גם בשבילכם</strong><span>גם אתם משקיעים בזה, אז מגיעה לכם מתנה קטנה משלכם.</span></div>
+          </li>
+          <li>
+            <svg><use href="#icon-check"/></svg>
+            <div><strong>בונדייט - דייט כלבלבי</strong><span>התירוץ החודשי שלכם לנסות משהו חדש ביחד. משחק, אתגר, טיול, פעילות או הפתעה שנוצרו בשבילכם ובשביל הכלב שלכם.</span></div>
+          </li>
+        </ul>
+      </div>
+    </div>
+    <p class="inside__note">כל מוצר נבדק לאיכות לפני שהוא יוצא לדרך.</p>
+  </div>
+</section>
+
+<!-- ================= PRICING ================= -->
+<section class="pricing" id="pricing">
+  <div class="wrap">
+    <div class="pricing__head">
+      <p class="eyebrow">הוגן ופשוט</p>
+      <h2>שני מסלולים, שהורכבו במחשבה</h2>
+      <p class="sub">בדיוק מה שאתם והכלב שלכם צריכים כל חודש, נבחר בקפידה ובמחשבה כדי ששניכם תוכלו להתמקד בכיף ביחד.</p>
+    </div>
+    <div class="pricing__cards">
+      <div class="pricing__card pricing__card--featured">
+        <div class="pricing__glow"></div>
+        <span class="pricing__badge">מומלצת</span>
+        <span class="pricing__plan">בונדין בגדול</span>
+        <div class="pricing__amount">₪249<span>&nbsp;/ לחודש</span></div>
+        <p class="pricing__tag">הקופסה המלאה. אנחנו דואגים להכל ואתם נהנים מראש שקט.</p>
+        <ul class="pricing__list">
+          <li><svg><use href="#icon-check"/></svg>חטיפים טעימים ואיכותיים ללא פשרות כדי שתוכלו להיות רגועים גם בעניין הזה</li>
+          <li><svg><use href="#icon-check"/></svg>מוצרים שימושיים שנבחרו בקפידה, כדי שתהיו צרכנים חכמים</li>
+          <li><svg><use href="#icon-check"/></svg>משחקים ותרגילים לחיזוק הקשר ביניכם</li>
+          <li><svg><use href="#icon-check"/></svg>משהו קטן בשבילכם, בכל חודש</li>
+          <li><svg><use href="#icon-check"/></svg>משלוח חינם בכל חודש</li>
+        </ul>
+        <a href="#join" class="btn btn-primary btn-block" data-plan="treats">להתחיל את הקופסה הראשונה שלי</a>
+        <p class="pricing__foot">ללא התחייבות</p>
+      </div>
+      <div class="pricing__card">
+        <span class="pricing__plan">בונדין בכיף</span>
+        <div class="pricing__amount">₪149<span>&nbsp;/ לחודש</span></div>
+        <p class="pricing__tag">כל הכיף של BONDIN. אתם דואגים לחטיפים.</p>
+        <ul class="pricing__list">
+          <li><svg><use href="#icon-check"/></svg>מוצרים שימושיים שנבחרו בקפידה, כדי שתהיו צרכנים חכמים</li>
+          <li><svg><use href="#icon-check"/></svg>משחקים ותרגילים לחיזוק הקשר ביניכם</li>
+          <li><svg><use href="#icon-check"/></svg>משהו קטן בשבילכם, בכל חודש</li>
+          <li><svg><use href="#icon-check"/></svg>משלוח חינם בכל חודש</li>
+        </ul>
+        <a href="#join" class="btn btn-ghost btn-block" data-plan="basic">להתחיל את הקופסה הראשונה שלי</a>
+        <p class="pricing__foot">ללא התחייבות</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= JOIN FORM ================= -->
+<section class="join" id="join">
+  <div class="wrap">
+    <div class="join__card">
+      <div class="join__head">
+        <h2>בואו נבנה את הקופסה הראשונה של הכלב שלכם</h2>
+        <p>לוקח בערך דקה. עדיין בלי פרטי אשראי, רק הדברים הכיפיים.</p>
+        <p class="join__plan" id="joinPlan">המסלול שלכם: בונדין בגדול · ₪249 לחודש</p>
+      </div>
+      <form id="joinForm">
+        <input type="checkbox" id="jBot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+        <p class="join__section">על הכלב שלכם</p>
+        <div class="field">
+          <label for="jDogName">השם של הכלב</label>
+          <input type="text" id="jDogName" required>
+        </div>
+        <div class="join__row">
+          <div class="field">
+            <label>מין הכלב</label>
+            <div class="pillgroup" role="radiogroup" aria-label="מין הכלב">
+              <input type="radio" id="jDogGenderM" name="jDogGender" value="זכר" required><label for="jDogGenderM">זכר</label>
+              <input type="radio" id="jDogGenderF" name="jDogGender" value="נקבה"><label for="jDogGenderF">נקבה</label>
+            </div>
+          </div>
+          <div class="field">
+            <label for="jDogAge">גיל הכלב</label>
+            <input type="number" id="jDogAge" min="0" max="30" step="0.5" required>
+          </div>
+        </div>
+        <div class="join__row join__row--notes">
+          <div class="join__col">
+            <div class="field">
+              <label>גודל</label>
+              <div class="pillgroup" role="radiogroup" aria-label="גודל הכלב">
+                <input type="radio" id="jSizeS" name="jSize" value="קטן" required><label for="jSizeS">קטן</label>
+                <input type="radio" id="jSizeM" name="jSize" value="בינוני"><label for="jSizeM">בינוני</label>
+                <input type="radio" id="jSizeL" name="jSize" value="גדול"><label for="jSizeL">גדול</label>
+              </div>
+            </div>
+            <div class="field">
+              <label>רמת אנרגיה</label>
+              <div class="pillgroup" role="radiogroup" aria-label="רמת האנרגיה של הכלב">
+                <input type="radio" id="jEnCalm" name="jEnergy" value="רגוע" required><label for="jEnCalm">רגוע</label>
+                <input type="radio" id="jEnPlay" name="jEnergy" value="שובב"><label for="jEnPlay">שובב</label>
+                <input type="radio" id="jEnHigh" name="jEnergy" value="חסר מעצורים"><label for="jEnHigh">חסר מעצורים</label>
+              </div>
+            </div>
+          </div>
+          <div class="field join__notesfield">
+            <label for="jDogNotes">ספרו לנו עליהם קצת:</label>
+            <textarea id="jDogNotes" rows="2" maxlength="200"></textarea>
+          </div>
+        </div>
+
+        <p class="join__section">עליכם</p>
+        <div class="field">
+          <label for="jParentName">השם שלכם</label>
+          <input type="text" id="jParentName" required>
+        </div>
+        <div class="join__row">
+          <div class="field">
+            <label for="jPhone">מספר טלפון</label>
+            <input type="tel" id="jPhone" required>
+          </div>
+          <div class="field">
+            <label for="jEmail">האימייל שלכם</label>
+            <input type="email" id="jEmail" required>
+          </div>
+        </div>
+        <div class="field">
+          <label for="jAddress">כתובת למשלוח</label>
+          <input type="text" id="jAddress" required>
+        </div>
+        <button type="submit" class="btn btn-primary btn-block">להתחיל את הקופסה הראשונה שלי</button>
+        <p class="join__error" id="joinError" role="alert"></p>
+      </form>
+      <div class="join__success" id="joinSuccess">
+        <svg><use href="#icon-mail"/></svg>
+        <h3 style="font-family:var(--font-body);font-weight:800;font-size:1.2rem;margin-bottom:8px;">תודה, קיבלנו!</h3>
+        <p style="color:var(--ink-soft);">הפרטים שלכם הגיעו אל בונדין. ניצור איתכם קשר בקרוב עם הצעדים הבאים.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOX PREVIEW ================= -->
+<section class="boxshow">
+  <div class="wrap boxshow__grid">
+    <div>
+      <p class="eyebrow">החלק הכיפי</p>
+      <h2>ככה זה נראה כשמשהו מגיע.</h2>
+      <p class="copy">מה שבפנים משתנה כל חודש. אבל ההתרגשות הכיפית תמיד נשארת. ארזנו את זה בדיוק כמו שהיינו רוצים לקבל בעצמנו.</p>
+      <a class="btn btn-ghost" href="#join">לקבל את הבאה</a>
+    </div>
+    <div class="boxshow__img">
+      <img src="https://stavyesh.github.io/bondin-site/images/img-9d53c97c93.png" alt="A Bondin box, ribboned and ready to open">
+    </div>
+  </div>
+</section>
+
+<!-- ================= STORY ================= -->
+<section class="story" id="story">
+  <div class="wrap story__grid">
+    <div>
+      <div class="story__card">
+        <img class="story__photo" src="https://stavyesh.github.io/bondin-site/images/img-d45d7c91e8.png" alt="Buli, all smiles in his harness">
+        <div class="story__tape"></div>
+      </div>
+      <p class="story__caption">הכל התחיל עם כלבלב בשם בולי</p>
+    </div>
+    <div class="story__text">
+      <span class="story__eyebrow">הסיפור שלנו</span>
+      <h2>הכלב-ילד שלי, החבר הכי טוב שלי, ההשראה שלי.</h2>
+      <p>בולי הביא שמחה, צחוק ומשמעות לכל יום. אבל בואו נהיה כנים, האוזניים המתוקות האלה לא מגיעות עם הוראות הפעלה. כמו הרבה הורים לכלבים, רציתי לתת לו את הכי טוב שיש. במקום זה, גללתי שעות, עמדתי במעברים וקראתי תוויות קטנות בשפה לא ברורה, בזמן שהוא חיכה (לא ממש) בסבלנות.</p>
+      <p>מה שבאמת רציתי זה יותר זמן איתו. יותר משחק, יותר צחוק, יותר רגעים קטנים שהופכים לזיכרונות. אז בנינו את בונדין כדי לחפש ולהנגיש לכם מוצרים טובים, כל חודש, כדי שתוכלו לבלות פחות זמן בגלילה ויותר זמן על הספה, בטיילת, או בכל מקום שהכלב שלכם גורר אתכם אליו.</p>
+      <p>עכשיו אתם חלק מהמשפחה הפרוותית שלנו.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= VALUES ================= -->
+<section class="values">
+  <div class="wrap values__grid">
+    <div class="values__item">
+      <h3>לשחק</h3>
+      <p>משחקים ומתנות קטנות שהופכים יום שלישי רגיל ליום שכדאי לכשכש עליו בזנב.</p>
+    </div>
+    <div class="values__item">
+      <h3>להבין</h3>
+      <p>כלים והדרכות שעוזרים לכם להבין את הכלב שלכם קצת יותר טוב, חודש אחרי חודש.</p>
+    </div>
+    <div class="values__item">
+      <h3>להתחבר</h3>
+      <p>הכל בקופסה נבנה בשביל שניים, כי החלק הכי טוב בכל זה הוא לעשות את זה ביחד.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ================= SHOP ================= -->
+<section class="shop" id="shop">
+  <div class="wrap">
+    <div class="shop__head">
+      <p class="eyebrow">מדי פעם</p>
+      <h2>ערכות חד פעמיות, כל עוד הן נמצאות</h2>
+      <p class="sub">מדי פעם אנחנו מרכיבים ערכה נושאית מחוץ לקופסה הרגילה: כמויות מוגבלות, אז כדאי לתפוס את שלכם כל עוד הן כאן.</p>
+    </div>
+
+    <div class="shop__grid" id="shopGrid">
+      <div class="shop__card">
+        <span class="shop__badge">הזדמנות אחרונה</span>
+        <h3>ערכת חורף</h3>
+        <p>סט קטן של כלים יומיומיים שהופכים את הטיפול בחורף לקל יותר, במיוחד כשקר, רטוב, ובא לכם שהכל יהיה קל.</p>
+        <a class="btn btn-primary btn-sm btn-block" href="mailto:bondin.pawmail@gmail.com?subject=%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%94%D7%97%D7%95%D7%A8%D7%A3&body=%D7%94%D7%99%D7%99%20%D7%91%D7%95%D7%A0%D7%93%D7%99%D7%9F%2C%0A%0A%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%90%D7%AA%20%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%94%D7%97%D7%95%D7%A8%D7%A3%20%D7%9C%D7%9B%D7%9C%D7%91%20%D7%A9%D7%9C%D7%99.%20%D7%AA%D7%92%D7%99%D7%93%D7%95%20%D7%9C%D7%99%20%D7%9E%D7%94%20%D7%94%D7%A9%D7%9C%D7%91%D7%99%D7%9D%20%D7%94%D7%91%D7%90%D7%99%D7%9D.">לקבל את ערכת החורף</a>
+      </div>
+      <div class="shop__card">
+        <span class="shop__badge">הזדמנות אחרונה</span>
+        <h3>ערכת יום האהבה</h3>
+        <p>קצת מתיקות נוספת לשניכם: משהו ללעוס, משהו ללבוש, ומשהו שישאיר זיכרון.</p>
+        <a class="btn btn-primary btn-sm btn-block" href="mailto:bondin.pawmail@gmail.com?subject=%D7%9E%D7%A2%D7%95%D7%A0%D7%99%D7%99%D7%9F%2F%D7%AA%20%D7%91%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%99%D7%95%D7%9D%20%D7%94%D7%90%D7%94%D7%91%D7%94&body=%D7%94%D7%99%D7%99%20%D7%91%D7%95%D7%A0%D7%93%D7%99%D7%9F%2C%0A%0A%D7%90%D7%A9%D7%9E%D7%97%20%D7%9C%D7%A7%D7%91%D7%9C%20%D7%90%D7%AA%20%D7%A2%D7%A8%D7%9B%D7%AA%20%D7%99%D7%95%D7%9D%20%D7%94%D7%90%D7%94%D7%91%D7%94%20%D7%9C%D7%9B%D7%9C%D7%91%20%D7%A9%D7%9C%D7%99.%20%D7%AA%D7%92%D7%99%D7%93%D7%95%20%D7%9C%D7%99%20%D7%9E%D7%94%20%D7%94%D7%A9%D7%9C%D7%91%D7%99%D7%9D%20%D7%94%D7%91%D7%90%D7%99%D7%9D.">לקבל את ערכת האהבה</a>
+      </div>
+      <div class="shop__slot"><svg><use href="#icon-paw"/></svg><span>בקרוב</span></div>
+    </div>
+
+    <div class="shop__empty">
+      <h3>זה מה שיש כרגע</h3>
+      <p>הצטרפו למשפחה הפרוותית שלנו ותהיו הראשונים לשמוע על הערכה הבאה.</p>
+      <a class="btn btn-ghost btn-sm" href="#join">הצטרפו ללהקה שלנו</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="faq__head">
+      <p class="eyebrow">לפני שתשאלו</p>
+      <h2>שאלות, תשובות ברורות</h2>
+    </div>
+    <div class="faq__list" id="faqList">
+      <div class="faq__item is-open">
+        <button type="button" class="faq__q"><span>זה רק לגורים?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>ממש לא. ב-BONDIN כל הגילאים מוזמנים. אנחנו מתאימים את הקופסה לכלב שלכם, כדי שגם גורים מלאי אנרגיה וגם כלבים שכבר מעדיפים לקחת את החיים קצת יותר באיזי ימצאו בה דברים שהם אוהבים.</p></div>
+      </div>
+      <div class="faq__item">
+        <button type="button" class="faq__q"><span>ומה אם הכלב שלי מעדיף משהו אחר?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>ספרו לנו. כל כלב הוא עולם שלם, ואנחנו מעדיפים להכיר את שלכם מאשר לנחש. תוכלו לעדכן אותנו בהעדפות שלו לקראת הקופסה הבאה, ואנחנו נעשה את ההתאמות שאפשר כדי שהקופסה הבאה תרגיש קצת יותר שלו.</p></div>
+      </div>
+      <div class="faq__item">
+        <button type="button" class="faq__q"><span>אפשר לבטל בכל זמן?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>כן. הכל גמיש, אנחנו פה כדי לעשות לכם כיף ולהתאים לחיים שלכם. אנחנו יודעים שלפעמים החיים קורים אז אפשר לדלג על חודש או לבטל ותמיד תהיו מוזמנים לחזור אלינו בהמשך, מתי שנוח לכם.</p></div>
+      </div>
+      <div class="faq__item">
+        <button type="button" class="faq__q"><span>כמה זה עולה?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>יש לנו שני מסלולים, תלוי כמה תרצו שנוריד לכם מהראש בכל חודש.</p>
+          <p><strong>בונדין בגדול (₪249 לחודש)</strong><br>הקופסה המלאה: חטיפים איכותיים וטעימים שמתאימים לכלב שלכם, מוצרי יומיום והיגיינה שימושיים, משחקים ופעילויות שמקרבים ביניכם, משהו קטן גם בשבילכם וכמובן הבונדייט, הדייט הכלבלבי החודשי שלכם.</p>
+          <p><strong>בונדין בכיף (₪149 לחודש)</strong><br>רק הכיף של BONDIN, עם מוצרי היומיום, המשחקים, הפעילויות, ההפתעה בשבילכם והבונדייט החודשי.</p>
+          <p>אפשר להתחיל במסלול אחד ולעבור לאחר בחודש הבא. והמשלוח? עלינו, בשני המסלולים.</p></div>
+      </div>
+      <div class="faq__item">
+        <button type="button" class="faq__q"><span>ומה אם יש לי עוד שאלות?</span><span class="plus"></span></button>
+        <div class="faq__a"><p>בשביל זה אנחנו כאן. כתבו לנו בכל זמן ל-bondin.pawmail@gmail.com. בן אדם אמיתי יקרא את ההודעה שלכם וישמח להכיר, לענות ולעזור.</p></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CONTACT ================= -->
+<section class="contact" id="contact">
+  <div class="wrap contact__grid">
+    <div class="contact__intro">
+      <p class="eyebrow">בואו נדבר</p>
+      <h2>שאלות, סיפורים, או הרגע הכי מצחיק של הכלב שלכם</h2>
+      <p class="sub">נשמח לשמוע. כתבו לנו בכל זמן, אנחנו קוראים כל מכתב.</p>
+      <div class="contact__meta">
+        <a href="mailto:bondin.pawmail@gmail.com">bondin.pawmail@gmail.com</a>
+      </div>
+    </div>
+
+    <form class="contact__form" id="contactForm" novalidate>
+      <input type="checkbox" id="cBot" tabindex="-1" autocomplete="off" aria-hidden="true" style="display:none">
+      <div class="contact__row">
+        <div class="field">
+          <label for="cName">שם</label>
+          <input type="text" id="cName" name="cName" autocomplete="name" required>
+        </div>
+        <div class="field">
+          <label for="cEmail">אימייל</label>
+          <input type="email" id="cEmail" name="cEmail" autocomplete="email" required>
+        </div>
+      </div>
+      <div class="field">
+        <label for="cPhone">טלפון</label>
+        <input type="tel" id="cPhone" name="cPhone" autocomplete="tel">
+      </div>
+      <div class="field">
+        <label for="cMessage">הודעה</label>
+        <textarea id="cMessage" name="cMessage" required></textarea>
+      </div>
+      <button type="submit" class="btn btn-primary btn-block">לשלוח</button>
+      <p class="contact__status" id="contactStatus"></p>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FINAL CTA ================= -->
+<section class="final" id="finalcta">
+  <div class="wrap">
+    <h2>היום הכי אהוב בחודש של הכלב שלכם מתחיל כאן.</h2>
+    <form class="field-row final__form" id="finalForm">
+      <input type="email" id="finalEmail" placeholder="your@email.com" required aria-label="כתובת אימייל">
+      <button type="submit" class="btn btn-primary">הצטרפו לבונדין</button>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer class="footer">
+  <div class="wrap">
+    <div class="footer__top">
+      <div>
+        <div class="footer__brand">
+          <img class="mark-img mark-img--footer" src="https://stavyesh.github.io/bondin-site/images/img-7256a989ab.png" alt="BONDIN">
+          <span>BONDIN</span>
+        </div>
+        <p class="footer__tagline">מחוברים באהבה פרוותית במיוחד</p>
+      </div>
+      <ul class="footer__links">
+        <li><a href="#inside">מה יש בפנים</a></li>
+        <li><a href="#join">הצטרפו ללהקה שלנו</a></li>
+        <li><a href="#story">הסיפור שלנו</a></li>
+        <li><a href="#shop">ערכות חד פעמיות</a></li>
+        <li><a href="#contact">בואו נדבר</a></li>
+      </ul>
+    </div>
+    <div class="footer__bottom">
+      <span>© 2026 BONDIN. כל הזכויות שמורות.</span>
+      <span>נעשה עם ריר כלבים אמיתי וכוונות טובות.</span>
+    </div>
+  </div>
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* nav scroll + mobile toggle */
+  var nav = document.getElementById('nav');
+  var navToggle = document.getElementById('navToggle');
+  var navLinks = document.getElementById('navLinks');
+  window.addEventListener('scroll', function(){
+    nav.classList.toggle('is-scrolled', window.scrollY > 8);
+  });
+  navToggle.addEventListener('click', function(){
+    var open = nav.classList.toggle('is-open');
+    navToggle.setAttribute('aria-expanded', open ? 'true' : 'false');
+  });
+  navLinks.addEventListener('click', function(e){
+    if(e.target.tagName === 'A'){
+      nav.classList.remove('is-open');
+      navToggle.setAttribute('aria-expanded','false');
+    }
+  });
+
+  /* smooth-scroll all internal anchor links (independent of native hash navigation) */
+  document.querySelectorAll('a[href^="#"]').forEach(function(link){
+    var id = link.getAttribute('href').slice(1);
+    if(!id) return;
+    var target = document.getElementById(id);
+    if(!target) return;
+    link.addEventListener('click', function(e){
+      e.preventDefault();
+      target.scrollIntoView({behavior:'smooth', block:'start'});
+      try{ history.pushState(null, '', '#' + id); }catch(err){}
+    });
+  });
+
+  /* ---------------- plan selection ---------------- */
+  var PLANS = {
+    treats: {name:"בונדין בגדול", price:"₪249"},
+    basic: {name:"בונדין בכיף", price:"₪149"}
+  };
+  var selectedPlan = 'treats';
+  var planEl = document.getElementById('joinPlan');
+  function setPlan(key){
+    selectedPlan = key;
+    var p = PLANS[key];
+    planEl.textContent = "המסלול שלכם: " + p.name + " · " + p.price + " לחודש";
+  }
+  document.querySelectorAll('[data-plan]').forEach(function(el){
+    el.addEventListener('click', function(){ setPlan(el.getAttribute('data-plan')); });
+  });
+
+  /* ---------------- signup (hero / final / join) ---------------- */
+  var WEB3_KEY = "dfc07f60-bec7-488d-8bc3-eaed242f2514";
+  function sendToWeb3(payload){
+    payload.access_key = WEB3_KEY;
+    payload.from_name = "Bondin website";
+    return fetch("https://api.web3forms.com/submit", {
+      method: "POST",
+      headers: {"Content-Type": "application/json", "Accept": "application/json"},
+      body: JSON.stringify(payload)
+    }).then(function(r){ return r.json(); }).then(function(d){
+      if(!d.success){ throw new Error(d.message || "send failed"); }
+      return d;
+    });
+  }
+
+  function submitSignup(email, extra){
+    var data = {
+      subject: "הרשמה חדשה לבונדין" + (extra && extra.dogName ? ": " + extra.dogName : ""),
+      email: email
+    };
+    if(extra){
+      if(extra.plan) data["מסלול"] = extra.plan;
+      if(extra.dogName) data["השם של הכלב"] = extra.dogName;
+      if(extra.dogGender) data["מין הכלב"] = extra.dogGender;
+      if(extra.dogAge) data["גיל הכלב"] = extra.dogAge;
+      if(extra.dogNotes) data["עוד עליהם"] = extra.dogNotes;
+      if(extra.size) data["גודל"] = extra.size;
+      if(extra.energy) data["רמת אנרגיה"] = extra.energy;
+      if(extra.parentName) data["השם שלכם"] = extra.parentName;
+      if(extra.phone) data["טלפון"] = extra.phone;
+      if(extra.address) data["כתובת למשלוח"] = extra.address;
+    }
+    return sendToWeb3(data);
+  }
+
+  document.getElementById('heroForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('heroEmail').value.trim();
+    if(!email) return;
+    document.getElementById('jEmail').value = email;
+    document.getElementById('join').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('finalForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var email = document.getElementById('finalEmail').value.trim();
+    if(!email) return;
+    document.getElementById('jEmail').value = email;
+    document.getElementById('join').scrollIntoView({behavior:'smooth', block:'start'});
+  });
+
+  document.getElementById('joinForm').addEventListener('submit', function(e){
+    e.preventDefault();
+    var dogName = document.getElementById('jDogName').value.trim();
+    var dogAge = document.getElementById('jDogAge').value.trim();
+    var dogNotes = document.getElementById('jDogNotes').value.trim();
+    var parentName = document.getElementById('jParentName').value.trim();
+    var phone = document.getElementById('jPhone').value.trim();
+    var address = document.getElementById('jAddress').value.trim();
+    var email = document.getElementById('jEmail').value.trim();
+    var dogGenderEl = document.querySelector('input[name="jDogGender"]:checked');
+    var sizeEl = document.querySelector('input[name="jSize"]:checked');
+    var energyEl = document.querySelector('input[name="jEnergy"]:checked');
+    var form = e.target;
+    var showSuccess = function(){
+      form.style.display = 'none';
+      document.querySelector('.join__head').style.display = 'none';
+      document.getElementById('joinSuccess').classList.add('is-active');
+    };
+    if(document.getElementById('jBot').checked){ showSuccess(); return; }
+    var btn = form.querySelector('button[type="submit"]');
+    var btnLabel = btn.textContent;
+    var errEl = document.getElementById('joinError');
+    errEl.textContent = '';
+    btn.disabled = true;
+    btn.textContent = "שולחים...";
+    submitSignup(email, {
+      plan: PLANS[selectedPlan].name + ' (' + PLANS[selectedPlan].price + ')',
+      dogName: dogName,
+      dogGender: dogGenderEl ? dogGenderEl.value : '',
+      dogAge: dogAge,
+      dogNotes: dogNotes,
+      size: sizeEl ? sizeEl.value : '',
+      energy: energyEl ? energyEl.value : '',
+      parentName: parentName,
+      phone: phone,
+      address: address
+    }).then(showSuccess).catch(function(){
+      btn.disabled = false;
+      btn.textContent = btnLabel;
+      errEl.textContent = "משהו לא עבד. אפשר לנסות שוב או לכתוב לנו ל-bondin.pawmail@gmail.com.";
+    });
+  });
+
+  /* ---------------- FAQ accordion ---------------- */
+  var faqItems = document.querySelectorAll('.faq__item');
+  faqItems.forEach(function(item){
+    item.querySelector('.faq__q').addEventListener('click', function(){
+      var wasOpen = item.classList.contains('is-open');
+      faqItems.forEach(function(i){ i.classList.remove('is-open'); });
+      if(!wasOpen) item.classList.add('is-open');
+    });
+  });
+
+  /* ---------------- contact form ---------------- */
+  var contactForm = document.getElementById('contactForm');
+  var contactStatus = document.getElementById('contactStatus');
+  contactForm.addEventListener('submit', function(e){
+    e.preventDefault();
+    var name = document.getElementById('cName').value.trim();
+    var email = document.getElementById('cEmail').value.trim();
+    var phone = document.getElementById('cPhone').value.trim();
+    var message = document.getElementById('cMessage').value.trim();
+    if(!name || !email || !message){
+      contactStatus.textContent = "כמעט שם! נשמח שתוסיפו שם, אימייל והודעה.";
+      return;
+    }
+    if(document.getElementById('cBot').checked){ contactStatus.textContent = "תודה! קיבלנו את ההודעה ונחזור אליכם בקרוב."; return; }
+    contactStatus.textContent = "שולחים...";
+    var msg = {subject: "הודעה מ" + name + " דרך אתר בונדין", name: name, email: email, message: message};
+    if(phone) msg["טלפון"] = phone;
+    sendToWeb3(msg).then(function(){
+      contactStatus.textContent = "תודה! קיבלנו את ההודעה ונחזור אליכם בקרוב.";
+      contactForm.reset();
+    }).catch(function(){
+      contactStatus.textContent = "משהו לא עבד. אפשר לנסות שוב או לכתוב לנו ל-bondin.pawmail@gmail.com.";
+    });
+  });
+
+  /* ---------------- equal-height shop kit cards ---------------- */
+  var shopCards = document.querySelectorAll('.shop__card');
+  var equalizeTimer;
+  function equalizeShopCards(){
+    if(!shopCards.length) return;
+    shopCards.forEach(function(c){ c.style.minHeight = ''; });
+    var max = 0;
+    shopCards.forEach(function(c){ max = Math.max(max, c.offsetHeight); });
+    shopCards.forEach(function(c){ c.style.minHeight = max + 'px'; });
+  }
+  window.addEventListener('load', equalizeShopCards);
+  window.addEventListener('resize', function(){
+    clearTimeout(equalizeTimer);
+    equalizeTimer = setTimeout(equalizeShopCards, 150);
+  });
+})();
+</script>
+</body>
+</html>
